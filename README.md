@@ -1,14 +1,14 @@
 # Hard to Read and Understand Pythonic Idioms? DeIdiom and Explain Them in Non-Idiomatic Equivalent Code
 
-1. ## Appendices:
+ ## Appendices:
 Appendices.pdf is the supplementary document.
 
 
-2. ## Web application: 
+ ## Web application: 
 We develop a web application for demostration of deidioming Python code into non-idiomatic Python code to rescue the readability of nine pythonic idioms (list/set/dict-comprehension, chain-comparison, truth-value-test, loop-else, assign-multiple-targets, for-multiple-targets and star). Please visit http://35.77.46.3:5000.
 	
 
-3. ## Code:
+ ## Code:
 	
 	1). code/extract_idiom_code_new:
 	  
@@ -24,7 +24,7 @@ We develop a web application for demostration of deidioming Python code into non
 	
 	
 
-4. ## Data:
+ ## Data:
 
 	1). data/all_idiomatic_to_nonidiomatic/:
 	  
