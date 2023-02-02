@@ -1,0 +1,367 @@
+repo_name,file_html,cl,me,old_code,new_code,flag_pass,test_html_list
+LibCST,https://github.com/Instagram/LibCST/tree/master/libcst/helpers/_template.py,TemplateTest,test_suite,"source = mangle_template(template, {name for name in template_replacements})","tmp_SetComp0 = set()
+for name in template_replacements:
+    tmp_SetComp0.add(name)
+
+source = mangle_template(template, tmp_SetComp0)
+",1,"[['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_simple_module'], ['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_statement'], ['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_suite']]"
+LibCST,https://github.com/Instagram/LibCST/tree/master/libcst/helpers/_template.py,TemplateTest,test_suite,new_module.visit(TemplateChecker({name for name in template_replacements})),"tmp_SetComp0 = set()
+for name in template_replacements:
+    tmp_SetComp0.add(name)
+
+new_module.visit(TemplateChecker(tmp_SetComp0))
+",1,"[['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_simple_module'], ['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_statement'], ['https://github.com/Instagram/LibCST/tree/master/libcst/helpers/tests/test_template.py', 'libcst.helpers.tests.test_template', 'TemplateTest', 'test_suite']]"
+LibCST,https://github.com/Instagram/LibCST/tree/master/libcst/codemod/_cli.py,ToolE2ETest,test_leaky_codemod,files = sorted(list({os.path.abspath(f) for f in files})),"tmp_SetComp0 = set()
+for f in files:
+    tmp_SetComp0.add(os.path.abspath(f))
+
+files = sorted(list(tmp_SetComp0))
+",1,"[['https://github.com/Instagram/LibCST/tree/master/libcst/tests/test_e2e.py', 'libcst.tests.test_e2e', 'ToolE2ETest', 'test_leaky_codemod']]"
+pydicom,https://github.com/pydicom/pydicom/tree/master/pydicom/filereader.py,TestDataElementGenerator,test_big_endian_explicit,tag_set = {Tag(tag) for tag in specific_tags} if specific_tags else set(),"def my_comprehension_func(specific_tags):
+    tmp_SetComp0 = []
+    for tag in specific_tags:
+        tmp_SetComp0.add(Tag(tag))
+    return tmp_SetComp0
+
+tag_set = my_comprehension_func(specific_tags) if specific_tags else set()
+",1,"[['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_filereader.py', 'pydicom.tests.test_filereader', 'TestDataElementGenerator', 'test_little_endian_explicit'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_rawread.py', 'pydicom.tests.test_rawread', 'TestRawSequence', 'test_explVR_switch_implVR_in_SQ_item'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_filereader.py', 'pydicom.tests.test_filereader', 'TestReader', 'test_dcmread_does_not_raise'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_filereader.py', 'pydicom.tests.test_filereader', 'TestDataElementGenerator', 'test_little_endian_implicit'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_filereader.py', 'pydicom.tests.test_filereader', 'TestDataElementGenerator', 'test_big_endian_explicit']]"
+pydicom,https://github.com/pydicom/pydicom/tree/master/pydicom/fileset.py,TestFileSet_Modify,test_write_dicomdir_fs_changes,fout = {Path(ii.FileID) for ii in self},"
+fout = set()
+for ii in self:
+    fout.add(Path(ii.FileID))
+",1,"[['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_path'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_use_existing'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_dataset'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Load', 'test_write_new_path'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestRecordNode', 'test_file_id_singleton'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_implicit'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_use_existing_raises'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_use_existing'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_empty_write'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_file_id'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove_add'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_use_existing_raises'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_fs_changes']]"
+pydicom,https://github.com/pydicom/pydicom/tree/master/pydicom/fileset.py,TestFileSet_Modify,test_write_dicomdir_fs_changes,fin = {ii.node._file_id for ii in self if ii.SOPInstanceUID not in self._stage['+']},"
+fin = set()
+for ii in self:
+    if ii.SOPInstanceUID not in self._stage['+']:
+        fin.add(ii.node._file_id)
+",1,"[['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_path'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_use_existing'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_dataset'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Load', 'test_write_new_path'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_add_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestRecordNode', 'test_file_id_singleton'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_implicit'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_use_existing_raises'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_use_existing'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_empty_write'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_file_id'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet', 'test_remove_add'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_use_existing_raises'], ['https://github.com/pydicom/pydicom/tree/master/pydicom/tests/test_fileset.py', 'pydicom.tests.test_fileset', 'TestFileSet_Modify', 'test_write_dicomdir_fs_changes']]"
+beartype,https://github.com/beartype/beartype/tree/master/beartype/_decor/_code/_pep/_pephint.py,,test_pep_code_check_hint,"func_curr_code = PEP586_CODE_HINT_PREFIX_format(pith_curr_assign_expr=pith_curr_assign_expr, hint_child_types_expr=add_func_scope_types(types={type(hint_child) for hint_child in hint_childs}, func_scope=func_wrapper_locals, exception_prefix=_EXCEPTION_PREFIX_HINT))","tmp_SetComp0 = set()
+for hint_child in hint_childs:
+    tmp_SetComp0.add(type(hint_child))
+
+func_curr_code = PEP586_CODE_HINT_PREFIX_format(pith_curr_assign_expr=pith_curr_assign_expr, hint_child_types_expr=add_func_scope_types(types=tmp_SetComp0, func_scope=func_wrapper_locals, exception_prefix=_EXCEPTION_PREFIX_HINT))
+",1,"[['https://github.com/beartype/beartype/tree/master/beartype_test/a00_unit/a90_decor/code/pep/test_codepephint.py', 'beartype_test.a00_unit.a90_decor.code.pep.test_codepephint', '', 'test_pep_code_check_hint']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_get_cont_out_labels_1,"int_labels = {o for o in flat_labels if not isinstance(o, str)}","
+int_labels = set()
+for o in flat_labels:
+    if not isinstance(o, str):
+        int_labels.add(o)
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_get_cont_out_labels_2'], ['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_get_cont_out_labels_1']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_get_cont_out_labels_1,"str_labels = {o for o in flat_labels if isinstance(o, str)}","
+str_labels = set()
+for o in flat_labels:
+    if isinstance(o, str):
+        str_labels.add(o)
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_get_cont_out_labels_2'], ['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_get_cont_out_labels_1']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_canonicalize_network_structure,"neg_int_labels = sorted(list({l for l in flat_labels if not isinstance(l, str) and l < 0}))","tmp_SetComp0 = set()
+for l in flat_labels:
+    if not isinstance(l, str) and l < 0:
+        tmp_SetComp0.add(l)
+
+neg_int_labels = sorted(list(tmp_SetComp0))
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_canonicalize_network_structure']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_canonicalize_network_structure,"pos_int_labels = sorted(list({l for l in flat_labels if not isinstance(l, str) and l > 0}))","tmp_SetComp0 = set()
+for l in flat_labels:
+    if not isinstance(l, str) and l > 0:
+        tmp_SetComp0.add(l)
+
+pos_int_labels = sorted(list(tmp_SetComp0))
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_canonicalize_network_structure']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_canonicalize_network_structure,"neg_str_labels = sorted({l for l in flat_labels if isinstance(l, str) and l[0] == '-'}, reverse=True)","tmp_SetComp0 = set()
+for l in flat_labels:
+    if isinstance(l, str) and l[0] == '-':
+        tmp_SetComp0.add(l)
+
+neg_str_labels = sorted(tmp_SetComp0, reverse=True)
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_canonicalize_network_structure']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/tensornetwork/ncon_interface.py,,test_canonicalize_network_structure,"pos_str_labels = sorted(list({l for l in flat_labels if isinstance(l, str) and l[0] != '-'}))","tmp_SetComp0 = set()
+for l in flat_labels:
+    if isinstance(l, str) and l[0] != '-':
+        tmp_SetComp0.add(l)
+
+pos_str_labels = sorted(list(tmp_SetComp0))
+",1,"[['https://github.com/google/TensorNetwork/tree/master/tensornetwork/tests/ncon_interface_test.py', 'tensornetwork.tests.ncon_interface_test', '', 'test_canonicalize_network_structure']]"
+TensorNetwork,https://github.com/google/TensorNetwork/tree/master/examples/sat/sat_tensornetwork.py,,test_solutions,var_set |= {abs(x) for x in clause},"tmp_SetComp0 = set()
+for x in clause:
+    tmp_SetComp0.add(abs(x))
+
+var_set |= tmp_SetComp0
+",1,"[['https://github.com/google/TensorNetwork/tree/master/examples/sat/sat_tensornetwork_test.py', 'examples.sat.sat_tensornetwork_test', '', 'test_solutions']]"
+dulwich,https://github.com/dulwich/dulwich/tree/master/dulwich/client.py,CheckWantsTests,test_fine,"missing = set(wants) - {v for (k, v) in refs.items() if not k.endswith(ANNOTATED_TAG_SUFFIX)}","tmp_SetComp0 = set()
+for (k, v) in refs.items():
+    if not k.endswith(ANNOTATED_TAG_SUFFIX):
+        tmp_SetComp0.add(v)
+
+missing = set(wants) - tmp_SetComp0
+",1,"[['https://github.com/dulwich/dulwich/tree/master/dulwich/tests/test_client.py', 'dulwich.tests.test_client', 'CheckWantsTests', 'test_fine']]"
+MuGo,https://github.com/brilee/MuGo/tree/master//go.py,TestEyeHandling,test_is_koish,neighbors = {board[n] for n in NEIGHBORS[c]},"
+neighbors = set()
+for n in NEIGHBORS[c]:
+    neighbors.add(board[n])
+",1,"[['https://github.com/brilee/MuGo/tree/master/tests/test_go.py', 'tests.test_go', 'TestEyeHandling', 'test_is_koish']]"
+nimporter,https://github.com/Pebaz/nimporter/tree/master//nimporter.py,,test_find_extensions,exclude_dirs = {Path(p).expanduser().absolute() for p in exclude_dirs},"tmp_SetComp0 = set()
+for p in exclude_dirs:
+    tmp_SetComp0.add(Path(p).expanduser().absolute())
+
+exclude_dirs = tmp_SetComp0
+",1,"[['https://github.com/Pebaz/nimporter/tree/master/tests/test_distribution.py', 'tests.test_distribution', '', 'test_find_extensions']]"
+pudb,https://github.com/inducer/pudb/tree/master/pudb/settings.py,,test_save_breakpoints,"bp_list = {(bp.file, bp.line, bp.cond) for bp in bp_list}","tmp_SetComp0 = set()
+for bp in bp_list:
+    tmp_SetComp0.add((bp.file, bp.line, bp.cond))
+
+bp_list = tmp_SetComp0
+",1,"[['https://github.com/inducer/pudb/tree/master/test/test_settings.py', 'test.test_settings', '', 'test_save_breakpoints']]"
+more-itertools,https://github.com/more-itertools/more-itertools/tree/master/more_itertools/more.py,UniqueToEachTests,test_duplicates,uniques = {element for element in counts if counts[element] == 1},"
+uniques = set()
+for element in counts:
+    if counts[element] == 1:
+        uniques.add(element)
+",1,"[['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'UniqueToEachTests', 'test_mixed'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'UniqueToEachTests', 'test_all_unique'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'UniqueToEachTests', 'test_duplicates']]"
+sacred,https://github.com/IDSIA/sacred/tree/master/sacred/config/custom_containers.py,,test_revelation,missing |= {key + '.' + k for k in self[key].revelation()},"tmp_SetComp0 = set()
+for k in self[key].revelation():
+    tmp_SetComp0.add(key + '.' + k)
+
+missing |= tmp_SetComp0
+",1,"[['https://github.com/IDSIA/sacred/tree/master/tests/test_config/test_dogmatic_dict.py', 'tests.test_config.test_dogmatic_dict', '', 'test_revelation']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/otlLib/builder.py,BuilderTest,test_buildPairPosGlyphsSubtable,"self.Coverage = buildCoverage({g for (g, _) in pairs.keys()}, glyphMap)","tmp_SetComp0 = set()
+for (g, _) in pairs.keys():
+    tmp_SetComp0.add(g)
+
+self.Coverage = buildCoverage(tmp_SetComp0, glyphMap)
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/otlLib/builder_test.py', 'Tests.otlLib.builder_test', 'BuilderTest', 'test_buildPairPosGlyphsSubtable']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/cu2qu/ufo.py,FontsToQuadraticTest,test_max_err_em_list,"curve_types = {f.lib.get(CURVE_TYPE_LIB_KEY, 'cubic') for f in fonts}","
+curve_types = set()
+for f in fonts:
+    curve_types.add(f.lib.get(CURVE_TYPE_LIB_KEY, 'cubic'))
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_both_max_err_and_max_err_em'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'GlyphsToQuadraticTest', 'test_incompatible_fonts'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_different_glyphsets'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_stats'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_modified'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_max_err_list'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_remember_curve_type'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_dump_stats'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_max_err_em_float'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_no_remember_curve_type'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_max_err_float'], ['https://github.com/fonttools/fonttools/tree/master/Tests/cu2qu/ufo_test.py', 'Tests.cu2qu.ufo_test', 'FontsToQuadraticTest', 'test_max_err_em_list']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/ufoLib/glifLib.py,,test_GlyphSet_writeGlyph_formatVersion,self._existingFileNames = {fileName.lower() for fileName in self.contents.values()},"tmp_SetComp0 = set()
+for fileName in self.contents.values():
+    tmp_SetComp0.add(fileName.lower())
+
+self._existingFileNames = tmp_SetComp0
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/ufoLib/glifLib_test.py', 'Tests.ufoLib.glifLib_test', 'FileNameTest', 'test_conflicting_case_insensitive_file_names'], ['https://github.com/fonttools/fonttools/tree/master/Tests/ufoLib/glifLib_test.py', 'Tests.ufoLib.glifLib_test', '', 'test_GlyphSet_writeGlyph_formatVersion']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/ttLib/tables/TupleVariation.py,TupleVariationTest,test_decompilePoints,badPoints = {str(p) for p in result if p < 0 or p >= numPoints},"
+badPoints = set()
+for p in result:
+    if p < 0 or p >= numPoints:
+        badPoints.add(str(p))
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/ttLib/tables/TupleVariation_test.py', 'Tests.ttLib.tables.TupleVariation_test', 'TupleVariationTest', 'test_decompilePoints_roundTrip'], ['https://github.com/fonttools/fonttools/tree/master/Tests/ttLib/tables/TupleVariation_test.py', 'Tests.ttLib.tables.TupleVariation_test', 'TupleVariationTest', 'test_decompilePoints']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/varLib/mutator.py,MutatorTest,test_varlib_mutator_CFF2,exclude = {a.axisNameID for a in fvar.axes},"
+exclude = set()
+for a in fvar.axes:
+    exclude.add(a.axisNameID)
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/varLib/varLib_test.py', 'Tests.varLib.varLib_test', 'BuildTest', 'test_kerning_merging'], ['https://github.com/fonttools/fonttools/tree/master/Tests/varLib/mutator_test.py', 'Tests.varLib.mutator_test', 'MutatorTest', 'test_varlib_mutator_CFF2']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/varLib/instancer/names.py,,test_pruningUnusedNames,return {nameID for nameID in used if nameID > 255},"tmp_SetComp0 = set()
+for nameID in used:
+    if nameID > 255:
+        tmp_SetComp0.add(nameID)
+
+return tmp_SetComp0
+",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/varLib/instancer/names_test.py', 'Tests.varLib.instancer.names_test', '', 'test_pruningUnusedNames']]"
+kb,https://github.com/gnebbia/kb/tree/master/kb/db.py,,test_get_artifacts_by_filter,artifact_id_list.append({art.id for art in artifacts_by_title}),"tmp_SetComp0 = set()
+for art in artifacts_by_title:
+    tmp_SetComp0.add(art.id)
+
+artifact_id_list.append(tmp_SetComp0)
+",1,"[['https://github.com/gnebbia/kb/tree/master/tests/test_db.py', 'tests.test_db', '', 'test_get_artifacts_by_filter']]"
+kb,https://github.com/gnebbia/kb/tree/master/kb/db.py,,test_get_artifacts_by_filter,artifact_id_list.append({art.id for art in artifacts_by_cat}),"tmp_SetComp0 = set()
+for art in artifacts_by_cat:
+    tmp_SetComp0.add(art.id)
+
+artifact_id_list.append(tmp_SetComp0)
+",1,"[['https://github.com/gnebbia/kb/tree/master/tests/test_db.py', 'tests.test_db', '', 'test_get_artifacts_by_filter']]"
+kb,https://github.com/gnebbia/kb/tree/master/kb/db.py,,test_get_artifacts_by_filter,artifact_id_list.append({art.id for art in artifacts_by_tags}),"tmp_SetComp0 = set()
+for art in artifacts_by_tags:
+    tmp_SetComp0.add(art.id)
+
+artifact_id_list.append(tmp_SetComp0)
+",1,"[['https://github.com/gnebbia/kb/tree/master/tests/test_db.py', 'tests.test_db', '', 'test_get_artifacts_by_filter']]"
+kb,https://github.com/gnebbia/kb/tree/master/kb/db.py,,test_get_artifacts_by_filter,artifact_id_list.append({art.id for art in artifacts_by_author}),"tmp_SetComp0 = set()
+for art in artifacts_by_author:
+    tmp_SetComp0.add(art.id)
+
+artifact_id_list.append(tmp_SetComp0)
+",1,"[['https://github.com/gnebbia/kb/tree/master/tests/test_db.py', 'tests.test_db', '', 'test_get_artifacts_by_filter']]"
+kb,https://github.com/gnebbia/kb/tree/master/kb/db.py,,test_get_artifacts_by_filter,artifact_id_list.append({art.id for art in artifacts_by_status}),"tmp_SetComp0 = set()
+for art in artifacts_by_status:
+    tmp_SetComp0.add(art.id)
+
+artifact_id_list.append(tmp_SetComp0)
+",1,"[['https://github.com/gnebbia/kb/tree/master/tests/test_db.py', 'tests.test_db', '', 'test_get_artifacts_by_filter']]"
+emoji,https://github.com/carpedm20/emoji/tree/master/emoji/core.py,,test_distinct_emoji_lis,distinct_list = list({e['emoji'] for e in emoji_lis(string)}),"tmp_SetComp0 = set()
+for e in emoji_lis(string):
+    tmp_SetComp0.add(e['emoji'])
+
+distinct_list = list(tmp_SetComp0)
+",1,"[['https://github.com/carpedm20/emoji/tree/master/tests/test_core.py', 'tests.test_core', '', 'test_distinct_emoji_lis']]"
+mobile-vision,https://github.com/facebookresearch/mobile-vision/tree/master/mobile_cv/arch/utils/helper.py,TestUtilsHelper,test_filter_kwargs,param_types = {param.kind for param in sig.parameters.values()},"
+param_types = set()
+for param in sig.parameters.values():
+    param_types.add(param.kind)
+",1,"[['https://github.com/facebookresearch/mobile-vision/tree/master/mobile_cv/arch/tests/test_utils_helper.py', 'mobile_cv.arch.tests.test_utils_helper', 'TestUtilsHelper', 'test_filter_kwargs']]"
+dacite,https://github.com/konradhalas/dacite/tree/master/dacite/core.py,,test_from_dict_with_union_and_optional,extra_fields = set(data.keys()) - {f.name for f in data_class_fields},"tmp_SetComp0 = set()
+for f in data_class_fields:
+    tmp_SetComp0.add(f.name)
+
+extra_fields = set(data.keys()) - tmp_SetComp0
+",1,"[['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_wrong_type_of_collection_item'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_correct_data'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_mixed_types_and_data_class_as_a_result'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_tuple_of_undefined_length'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_base_class_cast'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_already_created_data_class_instances'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_optional_field_and_default_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_set'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_mixed_types_and_builtin_type_as_a_result'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_missing_value_of_nested_data_class'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_wrong_type_of_dict_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_type.py', 'tests.core.test_type', '', 'test_from_dict_with_type_field'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_wrong_type_of_optional_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_optional_nested_data_class_and_missing_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_any'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_type_hooks_and_union'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_missing_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_type_hooks_and_generic_sequence'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_missing_optional_nested_data_class'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_dict'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_form_dict_with_disabled_type_checking_and_union'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_and_wrong_data'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_null_as_optional_value_for_nested_data_class'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_nested_data_class'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_generic_collecionts_of_data_classes'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_generic_collection'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_optional_generic_collection_of_data_classes'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_post_init_missing_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_default_factory'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_form_dict_with_disabled_type_checking'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_optional_new_type'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_and_optional_and_wrong_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_missing_optional_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_list_and_implicit_any_types'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_forward_reference'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_additional_values'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_cast_and_generic_collection'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_generic_collection_of_data_classes'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_dict_of_data_classes'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_and_optional_and_none_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_tuple_and_wrong_length'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_tuple_of_defined_length'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_builtin_types'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_optional_nested_data_class'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_type_hook_exception'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_dict_and_implicit_any_types'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_and_optional_and_missing_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_generic_collection_of_unions'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_data_classes_and_wrong_data'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_mixed_types_and_dict_of_data_classes_as_a_result'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_none_for_non_optional_field'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_nested_data_classes_and_default_factory'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_missing_forward_reference'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_strict_unions_match_and_ambiguous_match'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_data_classes'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_tuple_and_implicit_any_types'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_nested_generic_collection'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_existing_optional_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_of_mixed_types_and_collection_of_data_classes_as_a_result'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_post_init'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_strict'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_base_class_cast_and_optional'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_default_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_wrong_type'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_none_as_optional_value'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_none_optional_value_for_union'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_strict_unions_match_and_single_match'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_optional.py', 'tests.core.test_optional', '', 'test_from_dict_with_missing_optional_value_for_union'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_type_hooks'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_type_hooks_and_optional'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_collection.py', 'tests.core.test_collection', '', 'test_from_dict_with_generic_abstract_collection'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_init_var.py', 'tests.core.test_init_var', '', 'test_from_dict_with_init_var'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_config.py', 'tests.core.test_config', '', 'test_from_dict_with_cast'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_base.py', 'tests.core.test_base', '', 'test_from_dict_with_new_type'], ['https://github.com/konradhalas/dacite/tree/master/tests/core/test_union.py', 'tests.core.test_union', '', 'test_from_dict_with_union_and_optional']]"
+skll,https://github.com/EducationalTestingService/skll/tree/master/skll/utils/commandline/join_features.py,,test_join_features_libsvm_output_argparse,valid_extensions = {ext for ext in EXT_TO_READER if ext != '.libsvm'},"
+valid_extensions = set()
+for ext in EXT_TO_READER:
+    if ext != '.libsvm':
+        valid_extensions.add(ext)
+",1,"[['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_unknown_input_format'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_unknown_output_format'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_libsvm_input_argparse'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_libsvm_output_argparse']]"
+skll,https://github.com/EducationalTestingService/skll/tree/master/skll/utils/commandline/join_features.py,,test_join_features_libsvm_output_argparse,input_extension_set = {os.path.splitext(inf)[1].lower() for inf in args.infile},"
+input_extension_set = set()
+for inf in args.infile:
+    input_extension_set.add(os.path.splitext(inf)[1].lower())
+",1,"[['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_unknown_input_format'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_unknown_output_format'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_libsvm_input_argparse'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_join_features_libsvm_output_argparse']]"
+skll,https://github.com/EducationalTestingService/skll/tree/master/skll/utils/commandline/filter_features.py,,test_filter_features_unknown_input_format,valid_extensions = {ext for ext in EXT_TO_READER if ext != '.libsvm'},"
+valid_extensions = set()
+for ext in EXT_TO_READER:
+    if ext != '.libsvm':
+        valid_extensions.add(ext)
+",1,"[['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_with_drop_blanks'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_with_replace_blanks_with'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_unknown_output_format'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_with_replace_blanks_with_and_drop_blanks_raises_error'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_libsvm_input_argparse'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_libsvm_output_argparse'], ['https://github.com/EducationalTestingService/skll/tree/master/tests/test_commandline_utils.py', 'tests.test_commandline_utils', '', 'test_filter_features_unknown_input_format']]"
+picard,https://github.com/metabrainz/picard/tree/master/picard/file.py,FileAdditionalFilesPatternsTest,test_whitespaces_patterns,"return {(re.compile(fnmatch.translate(pattern), re.IGNORECASE), pattern.startswith('.')) for pattern in set(patterns_string.lower().split())}","tmp_SetComp0 = set()
+for pattern in set(patterns_string.lower().split()):
+    tmp_SetComp0.add((re.compile(fnmatch.translate(pattern), re.IGNORECASE), pattern.startswith('.')))
+
+return tmp_SetComp0
+",1,"[['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_simple_patterns'], ['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_wildcard_patterns'], ['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_simple_hidden_patterns'], ['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_empty_patterns'], ['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_duplicated_patterns'], ['https://github.com/metabrainz/picard/tree/master/test/test_file.py', 'test.test_file', 'FileAdditionalFilesPatternsTest', 'test_whitespaces_patterns']]"
+dtaidistance,https://github.com/wannesm/dtaidistance/tree/master/dtaidistance/clustering/medoids.py,,test_clustering_centroid,"self.cluster_idx = {medoid: {inst for inst in instances} for (medoid, instances) in zip(medoids, clusters)}","def my_comprehension_func(instances):
+    tmp_SetComp0 = []
+    for inst in instances:
+        tmp_SetComp0.add(inst)
+    return tmp_SetComp0
+
+self.cluster_idx = {medoid: {inst for inst in instances} for (medoid, instances) in zip(medoids, clusters)}
+",1,"[['https://github.com/wannesm/dtaidistance/tree/master/tests/test_clustering.py', 'tests.test_clustering', '', 'test_clustering_centroid']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/generators/expanders.py,,test_paley_graph,"square_set = {x ** 2 % p for x in range(1, p) if x ** 2 % p != 0}","
+square_set = set()
+for x in range(1, p):
+    if x ** 2 % p != 0:
+        square_set.add(x ** 2 % p)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/generators/tests/test_expanders.py', 'networkx.generators.tests.test_expanders', '', 'test_paley_graph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/generators/joint_degree_seq.py,,test_joint_degree_graph,k_unsat = {v for v in k_nodes if h_node_residual[v] > 0},"
+k_unsat = set()
+for v in k_nodes:
+    if h_node_residual[v] > 0:
+        k_unsat.add(v)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/generators/tests/test_joint_degree_seq.py', 'networkx.generators.tests.test_joint_degree_seq', '', 'test_joint_degree_graph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/generators/joint_degree_seq.py,,test_joint_degree_graph,l_unsat = {w for w in l_nodes if h_node_residual[w] > 0},"
+l_unsat = set()
+for w in l_nodes:
+    if h_node_residual[w] > 0:
+        l_unsat.add(w)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/generators/tests/test_joint_degree_seq.py', 'networkx.generators.tests.test_joint_degree_seq', '', 'test_joint_degree_graph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/utils/union_find.py,,test_unbalanced_merge_weights,"roots = iter(sorted({self[x] for x in objects}, key=lambda r: self.weights[r], reverse=True))","tmp_SetComp0 = set()
+for x in objects:
+    tmp_SetComp0.add(self[x])
+
+roots = iter(sorted(tmp_SetComp0, key=lambda r: self.weights[r], reverse=True))
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/utils/tests/test_unionfind.py', 'networkx.utils.tests.test_unionfind', '', 'test_unionfind_weights'], ['https://github.com/networkx/networkx/tree/master/networkx/utils/tests/test_unionfind.py', 'networkx.utils.tests.test_unionfind', '', 'test_empty_union'], ['https://github.com/networkx/networkx/tree/master/networkx/utils/tests/test_unionfind.py', 'networkx.utils.tests.test_unionfind', '', 'test_subtree_union'], ['https://github.com/networkx/networkx/tree/master/networkx/utils/tests/test_unionfind.py', 'networkx.utils.tests.test_unionfind', '', 'test_unionfind'], ['https://github.com/networkx/networkx/tree/master/networkx/utils/tests/test_unionfind.py', 'networkx.utils.tests.test_unionfind', '', 'test_unbalanced_merge_weights']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/tournament.py,,test_reachable_pair,"return {x for x in G if x == v or x in G[v] or any((is_path(G, [v, z, x]) for z in G))}","tmp_SetComp0 = set()
+for x in G:
+    if x == v or x in G[v] or any((is_path(G, [v, z, x]) for z in G)):
+        tmp_SetComp0.add(x)
+
+return tmp_SetComp0
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_tournament.py', 'networkx.algorithms.tests.test_tournament', '', 'test_unreachable_pair'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_tournament.py', 'networkx.algorithms.tests.test_tournament', '', 'test_same_node_is_reachable'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_tournament.py', 'networkx.algorithms.tests.test_tournament', '', 'test_reachable_pair']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/dag.py,TestDAG,test_descendants,"return {child for (parent, child) in nx.bfs_edges(G, source)}","tmp_SetComp0 = set()
+for (parent, child) in nx.bfs_edges(G, source):
+    tmp_SetComp0.add(child)
+
+return tmp_SetComp0
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_dag.py', 'networkx.algorithms.tests.test_dag', 'TestDAG', 'test_descendants']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/matching.py,TestMaxWeightMatching,test_trivial6,"return {(u, v) for (u, v) in set(map(frozenset, matching.items()))}","tmp_SetComp0 = set()
+for (u, v) in set(map(frozenset, matching.items())):
+    tmp_SetComp0.add((u, v))
+
+return tmp_SetComp0
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_s_t_blossom'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_s_blossom_relabel_expand'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nested_s_blossom_relabel_expand'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_floating_point_weights'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nasty_blossom_augmenting'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nasty_blossom2'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_negative_weights'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_trivial4'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_s_blossom'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nested_s_blossom'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nested_s_blossom_expand'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_trivial5'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nasty_blossom1'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nasty_blossom_expand_recursively'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nasty_blossom_least_slack'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_trivial3'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_nested_s_blossom_relabel'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_matching.py', 'networkx.algorithms.tests.test_matching', 'TestMaxWeightMatching', 'test_trivial6']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/community_utils.py,,test_not_disjoint,nodes = {n for c in communities for n in c if n in G},"
+nodes = set()
+for c in communities:
+    for n in c:
+        if n in G:
+            nodes.add(n)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_utils.py', 'networkx.algorithms.community.tests.test_utils', '', 'test_not_covering'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_utils.py', 'networkx.algorithms.community.tests.test_utils', '', 'test_not_node'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_utils.py', 'networkx.algorithms.community.tests.test_utils', '', 'test_is_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_louvain.py', 'networkx.algorithms.community.tests.test_louvain', '', 'test_valid_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_utils.py', 'networkx.algorithms.community.tests.test_utils', '', 'test_not_disjoint']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/kernighan_lin.py,,test_too_many_blocks,"A = {u for (u, s) in zip(labels, side) if s == 0}","
+A = set()
+for (u, s) in zip(labels, side):
+    if s == 0:
+        A.add(u)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition_argument_non_integer_nodes'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_non_disjoint_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_max_iter_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_seed_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_too_many_blocks']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/kernighan_lin.py,,test_too_many_blocks,"B = {u for (u, s) in zip(labels, side) if s == 1}","
+B = set()
+for (u, s) in zip(labels, side):
+    if s == 1:
+        B.add(u)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition_argument_non_integer_nodes'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_non_disjoint_partition'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_partition_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_max_iter_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_seed_argument'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/community/tests/test_kernighan_lin.py', 'networkx.algorithms.community.tests.test_kernighan_lin', '', 'test_too_many_blocks']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/maxcut.py,,test_random_partitioning_all_to_one,cut = {node for node in G.nodes() if seed.random() < p},"
+cut = set()
+for node in G.nodes():
+    if seed.random() < p:
+        cut.add(node)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/tests/test_maxcut.py', 'networkx.algorithms.approximation.tests.test_maxcut', '', 'test_random_partitioning'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/tests/test_maxcut.py', 'networkx.algorithms.approximation.tests.test_maxcut', '', 'test_random_partitioning_all_to_one']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/clique.py,,test_large_clique_size,N_prime = {v for v in G[u] if degrees[v] >= best_size},"
+N_prime = set()
+for v in G[u]:
+    if degrees[v] >= best_size:
+        N_prime.add(v)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/tests/test_clique.py', 'networkx.algorithms.approximation.tests.test_clique', '', 'test_large_clique_size']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/clique.py,,test_large_clique_size,neighbors = {v for v in G[u] if degrees[v] >= best_size},"
+neighbors = set()
+for v in G[u]:
+    if degrees[v] >= best_size:
+        neighbors.add(v)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/approximation/tests/test_clique.py', 'networkx.algorithms.approximation.tests.test_clique', '', 'test_large_clique_size']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/connectivity/edge_kcomponents.py,,test_zero_k_exception,R0 = {G.subgraph(cc).copy() for cc in find_ccs(G)},"
+R0 = set()
+for cc in find_ccs(G):
+    R0.add(G.subgraph(cc).copy())
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/connectivity/tests/test_edge_kcomponents.py', 'networkx.algorithms.connectivity.tests.test_edge_kcomponents', '', 'test_general_k_edge_subgraph_quick_return'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/connectivity/tests/test_edge_kcomponents.py', 'networkx.algorithms.connectivity.tests.test_edge_kcomponents', '', 'test_zero_k_exception']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/connectivity/cuts.py,,test_brandes_erlebach_book,node_cut = {H.nodes[node]['id'] for edge in edge_cut for node in edge},"
+node_cut = set()
+for edge in edge_cut:
+    for node in edge:
+        node_cut.add(H.nodes[node]['id'])
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/connectivity/tests/test_cuts.py', 'networkx.algorithms.connectivity.tests.test_cuts', '', 'test_brandes_erlebach_book']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/basic.py,TestGeneratorsBipartite,test_random_digraph,"X = {n for (n, is_top) in c.items() if is_top}","
+X = set()
+for (n, is_top) in c.items():
+    if is_top:
+        X.add(n)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_directed'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_gnmk_random_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_given_top_nodes'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_density'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_random_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_disconnected'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_gnmk_random_graph_complete'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_random_digraph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/basic.py,TestGeneratorsBipartite,test_random_digraph,"Y = {n for (n, is_top) in c.items() if not is_top}","
+Y = set()
+for (n, is_top) in c.items():
+    if not is_top:
+        Y.add(n)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_directed'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_gnmk_random_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_given_top_nodes'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_density'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_random_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_basic.py', 'networkx.algorithms.bipartite.tests.test_basic', 'TestBipartiteBasic', 'test_bipartite_sets_disconnected'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_gnmk_random_graph_complete'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_generators.py', 'networkx.algorithms.bipartite.tests.test_generators', 'TestGeneratorsBipartite', 'test_random_digraph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/projection.py,TestBipartiteProject,test_directed_projection,nbrs2 = {v for nbr in B[u] for v in B[nbr] if v != u},"
+nbrs2 = set()
+for nbr in B[u]:
+    for v in B[nbr]:
+        if v != u:
+            nbrs2.add(v)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_project.py', 'networkx.algorithms.bipartite.tests.test_project', 'TestBipartiteProject', 'test_star_projected_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_project.py', 'networkx.algorithms.bipartite.tests.test_project', 'TestBipartiteProject', 'test_path_projected_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_project.py', 'networkx.algorithms.bipartite.tests.test_project', 'TestBipartiteProject', 'test_project_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_project.py', 'networkx.algorithms.bipartite.tests.test_project', 'TestBipartiteProject', 'test_path_projected_properties_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/bipartite/tests/test_project.py', 'networkx.algorithms.bipartite.tests.test_project', 'TestBipartiteProject', 'test_directed_projection']]"
+pipreqs,https://github.com/bndr/pipreqs/tree/master/pipreqs/pipreqs.py,TestPipreqs,test_deduplicate_dependencies,data = {x.strip() for x in f},"
+data = set()
+for x in f:
+    data.add(x.strip())
+",1,"[['https://github.com/bndr/pipreqs/tree/master/tests/test_pipreqs.py', 'tests.test_pipreqs', 'TestPipreqs', 'test_get_imports_info'], ['https://github.com/bndr/pipreqs/tree/master/tests/test_pipreqs.py', 'tests.test_pipreqs', 'TestPipreqs', 'test_get_all_imports'], ['https://github.com/bndr/pipreqs/tree/master/tests/test_pipreqs.py', 'tests.test_pipreqs', 'TestPipreqs', 'test_deduplicate_dependencies']]"
+bpython,https://github.com/bpython/bpython/tree/master/bpython/autocomplete.py,TestAttrCompletion,test_slots_not_crash,"matches = {f'{name}=' for name in argspec[1][0] if isinstance(name, str) and name.startswith(r.word)}","
+matches = set()
+for name in argspec[1][0]:
+    if isinstance(name, str) and name.startswith(r.word):
+        matches.add(f'{name}=')
+",1,"[['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestAttrCompletion', 'test_descriptor_attributes_not_run'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestDictKeyCompletion', 'test_obj_that_does_not_allow_conversion_to_bool'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestMagicMethodCompletion', 'test_magic_methods_complete_after_double_underscores'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestDictKeyCompletion', 'test_set_of_keys_returned_when_matches_found'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestDictKeyCompletion', 'test_none_returned_when_no_matches_left'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestAttrCompletion', 'test_custom_get_attribute_not_invoked'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestDictKeyCompletion', 'test_none_returned_when_not_dict_type'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestParameterNameCompletion', 'test_set_of_params_returns_when_matches_found'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestDictKeyCompletion', 'test_none_returned_when_eval_error'], ['https://github.com/bpython/bpython/tree/master/bpython/test/test_autocomplete.py', 'bpython.test.test_autocomplete', 'TestAttrCompletion', 'test_slots_not_crash']]"
+xonsh,https://github.com/xonsh/xonsh/tree/master/xonsh/completers/man.py,,test_man_completion,"return {s for s in OPTIONS[cmd] if get_filter_function()(s, context.prefix)}","tmp_SetComp0 = set()
+for s in OPTIONS[cmd]:
+    if get_filter_function()(s, context.prefix):
+        tmp_SetComp0.add(s)
+
+return tmp_SetComp0
+",1,"[['https://github.com/xonsh/xonsh/tree/master/tests/test_man.py', 'tests.test_man', '', 'test_man_completion']]"

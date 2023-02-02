@@ -1,0 +1,1608 @@
+repo_name,file_html,cl,me,old_code,new_code,flag_pass,test_html_list
+tfc,https://github.com/maqp/tfc/tree/master/src/relay/diffs.py,TestAccountChecker,test_account_checker,"for account in account_list:
+    ratio = difflib.SequenceMatcher(a=account, b=purp_account).ratio()
+    if ratio >= ACCOUNT_RATIO_LIMIT:
+        break
+else:
+    account = get_account_from_user(account_list, onion_address_user, account_input_queue)","
+flag_else = 1
+for account in account_list:
+    ratio = difflib.SequenceMatcher(a=account, b=purp_account).ratio()
+    if ratio >= ACCOUNT_RATIO_LIMIT:
+        flag_else = 0
+        break
+if flag_else:
+    account = get_account_from_user(account_list, onion_address_user, account_input_queue)",1,"[['https://github.com/maqp/tfc/tree/master/tests/relay/test_diffs.py', 'tests.relay.test_diffs', 'TestAccountChecker', 'test_account_checker']]"
+fiber,https://github.com/uber/fiber/tree/master/fiber/backend.py,TestBackend,test_backend_selection,"for (backend_name, test) in BACKEND_TESTS.items():
+    if test():
+        name = backend_name
+        break
+else:
+    name = config.default_backend","
+flag_else = 1
+for (backend_name, test) in BACKEND_TESTS.items():
+    if test():
+        name = backend_name
+        flag_else = 0
+        break
+if flag_else:
+    name = config.default_backend",1,"[['https://github.com/uber/fiber/tree/master/tests/test_backend.py', 'tests.test_backend', 'TestBackend', 'test_backend_selection']]"
+andriller,https://github.com/den4uk/andriller/tree/master/andriller/cracking.py,,test_crack_pattern,"for i in range(4, 10):
+    for p in itertools.permutations(vals, i):
+        combo = ''.join(p).encode()
+        if hashlib.sha1(combo).digest() == patd:
+            return list(combo)
+else:
+    return False","
+
+for i in range(4, 10):
+    for p in itertools.permutations(vals, i):
+        combo = ''.join(p).encode()
+        if hashlib.sha1(combo).digest() == patd:
+            return list(combo)
+return False
+",1,"[['https://github.com/den4uk/andriller/tree/master/tests/test_cracking.py', 'tests.test_cracking', '', 'test_crack_pattern']]"
+in-toto,https://github.com/in-toto/in-toto/tree/master/in_toto/verifylib.py,TestInTotoVerifyThresholds,test_thresholds_skip_unauthorized_links,"for authorized_keyid in step.pubkeys:
+    authorized_key = layout.keys.get(authorized_keyid)
+    main_key_for_subkey = main_keys_for_subkeys.get(authorized_keyid)
+    if authorized_key and link_keyid == authorized_keyid:
+        verification_key = authorized_key
+        break
+    if main_key_for_subkey and link_keyid == authorized_keyid:
+        verification_key = main_key_for_subkey
+        break
+    if authorized_key and link_keyid in authorized_key.get('subkeys', {}).keys():
+        verification_key = authorized_key
+        break
+else:
+    LOG.info(""Skipping link. Keyid '{0}' is not authorized to sign links for step '{1}'"".format(link_keyid, step.name))
+    continue","
+flag_else = 1
+for authorized_keyid in step.pubkeys:
+    authorized_key = layout.keys.get(authorized_keyid)
+    main_key_for_subkey = main_keys_for_subkeys.get(authorized_keyid)
+    if authorized_key and link_keyid == authorized_keyid:
+        verification_key = authorized_key
+        flag_else = 0
+        break
+    if main_key_for_subkey and link_keyid == authorized_keyid:
+        verification_key = main_key_for_subkey
+        flag_else = 0
+        break
+    if authorized_key and link_keyid in authorized_key.get('subkeys', {}).keys():
+        verification_key = authorized_key
+        flag_else = 0
+        break
+if flag_else:
+    LOG.info(""Skipping link. Keyid '{0}' is not authorized to sign links for step '{1}'"".format(link_keyid, step.name))
+    continue",1,"[['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholds', 'test_thresholds_fail_with_not_enough_valid_links'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_link_signature_thresholds__M_M_M'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_link_signature_thresholds__S_S_M'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_thresholds_skip_expired_key'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholds', 'test_thresholds_skip_links_with_failing_signature'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_subkey_thresholds'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_link_signature_thresholds__S_M_S'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_link_signature_thresholds__S_S_S'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholdsGpgSubkeys', 'test_verify_link_signature_thresholds__S_M_M'], ['https://github.com/in-toto/in-toto/tree/master/tests/test_verifylib.py', 'tests.test_verifylib', 'TestInTotoVerifyThresholds', 'test_thresholds_skip_unauthorized_links']]"
+client_python,https://github.com/prometheus/client_python/tree/master/prometheus_client/exposition.py,TestGenerateText,test_gaugehistogram,"for suffix in ['_created', '_gsum', '_gcount']:
+    if s.name == metric.name + suffix:
+        om_samples.setdefault(suffix, []).append(sample_line(s))
+        break
+else:
+    output.append(sample_line(s))","
+flag_else = 1
+for suffix in ['_created', '_gsum', '_gcount']:
+    if s.name == metric.name + suffix:
+        om_samples.setdefault(suffix, []).append(sample_line(s))
+        flag_else = 0
+        break
+if flag_else:
+    output.append(sample_line(s))",1,"[['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_timestamp'], ['https://github.com/prometheus/client_python/tree/master/tests/test_parser.py', 'tests.test_parser', 'TestParse', 'test_roundtrip'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_counter_total'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_gauge'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_info'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_escaping'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_enum'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_summary'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_histogram'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_nonnumber'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_counter'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_unicode'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_counter_name_unit_append'], ['https://github.com/prometheus/client_python/tree/master/tests/test_exposition.py', 'tests.test_exposition', 'TestGenerateText', 'test_gaugehistogram']]"
+micropython-lib,https://github.com/micropython/micropython-lib/tree/master/python-stdlib/urllib.parse/urllib/parse.py,UrlParseTestCase,test_attributes_bad_port,"for c in url[:i]:
+    if c not in scheme_chars:
+        break
+else:
+    rest = url[i + 1:]
+    if not rest or any((c not in '0123456789' for c in rest)):
+        (scheme, url) = (url[:i].lower(), rest)","
+flag_else = 1
+for c in url[:i]:
+    if c not in scheme_chars:
+        flag_else = 0
+        break
+if flag_else:
+    rest = url[i + 1:]
+    if not rest or any((c not in '0123456789' for c in rest)):
+        (scheme, url) = (url[:i].lower(), rest)",1,"[['https://github.com/micropython/micropython-lib/tree/master/python-stdlib/urllib.parse/test_urlparse.py', 'python-stdlib.urllib.parse.test_urlparse', 'UrlParseTestCase', 'test_unparse_parse'], ['https://github.com/micropython/micropython-lib/tree/master/python-stdlib/urllib.parse/test_urlparse.py', 'python-stdlib.urllib.parse.test_urlparse', 'UrlParseTestCase', 'test_issue14072'], ['https://github.com/micropython/micropython-lib/tree/master/python-stdlib/urllib.parse/test_urlparse.py', 'python-stdlib.urllib.parse.test_urlparse', 'UrlParseTestCase', 'test_attributes_without_netloc'], ['https://github.com/micropython/micropython-lib/tree/master/python-stdlib/urllib.parse/test_urlparse.py', 'python-stdlib.urllib.parse.test_urlparse', 'UrlParseTestCase', 'test_attributes_bad_port']]"
+yt-dlp,https://github.com/yt-dlp/yt-dlp/tree/master/yt_dlp/utils.py,TestUtil,test_is_html,"for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        break
+else:
+    s = first_bytes.decode('utf-8', 'replace')","
+flag_else = 1
+for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        flag_else = 0
+        break
+if flag_else:
+    s = first_bytes.decode('utf-8', 'replace')",1,"[['https://github.com/yt-dlp/yt-dlp/tree/master/test/test_utils.py', 'test.test_utils', 'TestUtil', 'test_is_html']]"
+yt-dlp,https://github.com/yt-dlp/yt-dlp/tree/master/yt_dlp/extractor/youtube.py,TestPlayerInfo,test_youtube_extract_player_info,"for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        break
+else:
+    raise ExtractorError('Cannot identify player %r' % player_url)","
+flag_else = 1
+for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        flag_else = 0
+        break
+if flag_else:
+    raise ExtractorError('Cannot identify player %r' % player_url)",1,"[['https://github.com/yt-dlp/yt-dlp/tree/master/test/test_youtube_signature.py', 'test.test_youtube_signature', 'TestPlayerInfo', 'test_youtube_extract_player_info']]"
+schematics,https://github.com/schematics/schematics/tree/master/schematics/types/base.py,,test_date,"for fmt in self.formats:
+    try:
+        return datetime.datetime.strptime(value, fmt).date()
+    except (ValueError, TypeError):
+        continue
+else:
+    raise ConversionError(self.conversion_errmsg.format(value, ', '.join(self.formats)))","
+
+for fmt in self.formats:
+    try:
+        return datetime.datetime.strptime(value, fmt).date()
+    except (ValueError, TypeError):
+        continue
+raise ConversionError(self.conversion_errmsg.format(value, ', '.join(self.formats)))
+",1,"[['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_date_formats'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_date']]"
+schematics,https://github.com/schematics/schematics/tree/master/schematics/types/base.py,,test_datetime_to_native,"for fmt in self.formats:
+    try:
+        dt = datetime.datetime.strptime(value, fmt)
+        break
+    except (ValueError, TypeError):
+        continue
+else:
+    raise ConversionError(self.messages['parse_formats'].format(value, ', '.join(self.formats)))","
+flag_else = 1
+for fmt in self.formats:
+    try:
+        dt = datetime.datetime.strptime(value, fmt)
+        flag_else = 0
+        break
+    except (ValueError, TypeError):
+        continue
+if flag_else:
+    raise ConversionError(self.messages['parse_formats'].format(value, ', '.join(self.formats)))",1,"[['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_utc_type'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_convert_drop_tzinfo'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_utc'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_with_defaults'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_from_timestamp'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_to_native_from_datetime'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_reject_tzd'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_using_formats'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_convert'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_reject_invalid_type'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_timestamp'], ['https://github.com/schematics/schematics/tree/master/tests/test_datetime.py', 'tests.test_datetime', '', 'test_parse_require_tz'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_datetime_to_native']]"
+schematics,https://github.com/schematics/schematics/tree/master/schematics/types/base.py,,test_multilingual_string_should_require_a_locale,"for locale in possible_locales:
+    if locale in value:
+        localized = value[locale]
+        break
+else:
+    raise ConversionError(self.messages['locale_not_found'])","
+flag_else = 1
+for locale in possible_locales:
+    if locale in value:
+        localized = value[locale]
+        flag_else = 0
+        break
+if flag_else:
+    raise ConversionError(self.messages['locale_not_found'])",1,"[['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingualstring_should_enforce_noncastable_values'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingualstring_should_handle_none'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingual_string_should_accept_lists_of_locales'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingual_string_should_emit_string_with_default_locale'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingual_string_should_emit_string_with_explicit_locale'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingual_string_without_matching_locale_should_explode'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingualstring_should_handle_castable_values'], ['https://github.com/schematics/schematics/tree/master/tests/test_types.py', 'tests.test_types', '', 'test_multilingual_string_should_require_a_locale']]"
+pyperf,https://github.com/psf/pyperf/tree/master/pyperf/_formatter.py,TestUtils,test_timedelta_stdev,"for i in range(2, -9, -1):
+    if ref_value >= 10.0 ** i:
+        break
+else:
+    i = -9","
+flag_else = 1
+for i in range(2, -9, -1):
+    if ref_value >= 10.0 ** i:
+        flag_else = 0
+        break
+if flag_else:
+    i = -9",1,"[['https://github.com/psf/pyperf/tree/master/pyperf/tests/test_utils.py', 'pyperf.tests.test_utils', 'TestUtils', 'test_timedelta_stdev']]"
+papermill,https://github.com/nteract/papermill/tree/master/papermill/utils.py,,test_retry,"for i in range(num):
+    try:
+        return func(*args, **kwargs)
+    except Exception as e:
+        logger.debug('Retrying after: {}'.format(e))
+        exception = e
+else:
+    raise exception","
+
+for i in range(num):
+    try:
+        return func(*args, **kwargs)
+    except Exception as e:
+        logger.debug('Retrying after: {}'.format(e))
+        exception = e
+raise exception
+",1,"[['https://github.com/nteract/papermill/tree/master/papermill/tests/test_utils.py', 'papermill.tests.test_utils', '', 'test_retry']]"
+quark-engine,https://github.com/quark-engine/quark-engine/tree/master/quark/utils/tools.py,,test_contains_with_mutually_exclusive_list,"for j in range(len(subset_to_check)):
+    if target_copy[i + j] != subset_to_check[j]:
+        break
+else:
+    return True","
+flag_else = 1
+for j in range(len(subset_to_check)):
+    if target_copy[i + j] != subset_to_check[j]:
+        flag_else = 0
+        break
+if flag_else:
+    return True",1,"[['https://github.com/quark-engine/quark-engine/tree/master/tests/utils/test_tools.py', 'tests.utils.test_tools', '', 'test_contains_with_incorrect_sequence'], ['https://github.com/quark-engine/quark-engine/tree/master/tests/utils/test_tools.py', 'tests.utils.test_tools', '', 'test_contains_with_correct_sequence'], ['https://github.com/quark-engine/quark-engine/tree/master/tests/utils/test_tools.py', 'tests.utils.test_tools', '', 'test_contains_with_superset'], ['https://github.com/quark-engine/quark-engine/tree/master/tests/utils/test_tools.py', 'tests.utils.test_tools', '', 'test_contains_with_mutually_exclusive_list']]"
+pony,https://github.com/ponyorm/pony/tree/master/pony/orm/decompiling.py,TestDBSession,test_db_session_decorator_4,"for line in test_lines.split('\n'):
+    if not line or line.isspace():
+        continue
+    line = line.strip()
+    if line.startswith('#'):
+        continue
+    code = compile(line, '<?>', 'eval').co_consts[0]
+    ast1 = parse(line).node.nodes[0].expr
+    ast1.code.quals[0].iter.name = outmost_iterable_name
+    try:
+        ast2 = Decompiler(code).ast
+    except Exception as e:
+        print()
+        print(line)
+        print()
+        print(ast1)
+        print()
+        dis.dis(code)
+        raise
+    if str(ast1) != str(ast2):
+        print()
+        print(line)
+        print()
+        print(ast1)
+        print()
+        print(ast2)
+        print()
+        dis.dis(code)
+        break
+    else:
+        print('OK: %s' % line)
+else:
+    print('Done!')","
+flag_else = 1
+for line in test_lines.split('\n'):
+    if not line or line.isspace():
+        continue
+    line = line.strip()
+    if line.startswith('#'):
+        continue
+    code = compile(line, '<?>', 'eval').co_consts[0]
+    ast1 = parse(line).node.nodes[0].expr
+    ast1.code.quals[0].iter.name = outmost_iterable_name
+    try:
+        ast2 = Decompiler(code).ast
+    except Exception as e:
+        print()
+        print(line)
+        print()
+        print(ast1)
+        print()
+        dis.dis(code)
+        raise
+    if str(ast1) != str(ast2):
+        print()
+        print(line)
+        print()
+        print(ast1)
+        print()
+        print(ast2)
+        print()
+        dis.dis(code)
+        flag_else = 0
+        break
+    else:
+        print('OK: %s' % line)
+if flag_else:
+    print('Done!')",1,"[['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_decorator_2'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_ddl_2'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_decorator_1'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_ddl_3'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_10'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_decorator_3'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_allowed_exceptions_2'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_allowed_exceptions_1'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_4'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_9'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_11'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_3'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_6'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_5'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_retry_7'], ['https://github.com/ponyorm/pony/tree/master/pony/orm/tests/test_db_session.py', 'pony.orm.tests.test_db_session', 'TestDBSession', 'test_db_session_decorator_4']]"
+xar,https://github.com/facebookincubator/xar/tree/master/xar/py_util.py,PyUtilTest,test_wheel_determine_kind_normal,"for prefix in xar_util.yield_prefixes_reverse(src_record):
+    if prefix in src_paths.values():
+        kinds = [kind for (kind, path) in src_paths.items() if prefix == path]
+        break
+else:
+    data = None
+    if src_root.endswith('site-packages'):
+        data = os.path.normpath(os.path.join(src_root, '../../..'))
+    for prefix in xar_util.yield_prefixes_reverse(src_record):
+        if prefix.endswith('site-packages'):
+            assert dst_paths['purelib'] == dst_paths['platlib']
+            return ('purelib', prefix)
+        if prefix.endswith('bin'):
+            return ('scripts', prefix)
+        if prefix.endswith(self.name) and 'include' in prefix:
+            return ('headers', prefix)
+        if data and prefix == data:
+            return ('data', prefix)","
+flag_else = 1
+for prefix in xar_util.yield_prefixes_reverse(src_record):
+    if prefix in src_paths.values():
+        kinds = [kind for (kind, path) in src_paths.items() if prefix == path]
+        flag_else = 0
+        break
+if flag_else:
+    data = None
+    if src_root.endswith('site-packages'):
+        data = os.path.normpath(os.path.join(src_root, '../../..'))
+    for prefix in xar_util.yield_prefixes_reverse(src_record):
+        if prefix.endswith('site-packages'):
+            assert dst_paths['purelib'] == dst_paths['platlib']
+            return ('purelib', prefix)
+        if prefix.endswith('bin'):
+            return ('scripts', prefix)
+        if prefix.endswith(self.name) and 'include' in prefix:
+            return ('headers', prefix)
+        if data and prefix == data:
+            return ('data', prefix)",1,"[['https://github.com/facebookincubator/xar/tree/master/xar/tests/py_util_test.py', 'xar.tests.py_util_test', 'PyUtilTest', 'test_wheel_determine_kind_mac'], ['https://github.com/facebookincubator/xar/tree/master/xar/tests/py_util_test.py', 'xar.tests.py_util_test', 'PyUtilTest', 'test_wheel_determine_kind_normal']]"
+detect-secrets,https://github.com/Yelp/detect-secrets/tree/master/detect_secrets/core/plugins/initialize.py,,test_custom_plugins_does_not_pollute_settings,"for plugin_type in get_mapping_from_secret_type_to_class().values():
+    if plugin_type.__name__ == classname:
+        break
+else:
+    log.error(f'Error: No such `{classname}` plugin to initialize.')
+    log.error('Chances are you should run `pre-commit autoupdate`.')
+    log.error('This error can occur when using a baseline that was made by a newer detect-secrets version than the one running.')
+    raise TypeError","
+flag_else = 1
+for plugin_type in get_mapping_from_secret_type_to_class().values():
+    if plugin_type.__name__ == classname:
+        flag_else = 0
+        break
+if flag_else:
+    log.error(f'Error: No such `{classname}` plugin to initialize.')
+    log.error('Chances are you should run `pre-commit autoupdate`.')
+    log.error('This error can occur when using a baseline that was made by a newer detect-secrets version than the one running.')
+    raise TypeError",1,"[['https://github.com/Yelp/detect-secrets/tree/master/tests/core/usage/plugins_usage_test.py', 'tests.core.usage.plugins_usage_test', 'TestCustomPlugins', 'test_success'], ['https://github.com/Yelp/detect-secrets/tree/master/tests/core/plugins/initialize_test.py', 'tests.core.plugins.initialize_test', 'TestFromPluginClassName', 'test_no_such_plugin'], ['https://github.com/Yelp/detect-secrets/tree/master/tests/core/usage/scan_usage_test.py', 'tests.core.usage.scan_usage_test', '', 'test_default_plugins_initialized'], ['https://github.com/Yelp/detect-secrets/tree/master/tests/core/upgrades/upgrade_to_v1_0_test.py', 'tests.core.upgrades.upgrade_to_v1_0_test', '', 'test_custom_plugins_does_not_pollute_settings']]"
+skidl,https://github.com/devbisme/skidl/tree/master/skidl/circuit.py,,test_subcircuit_2,"for n in distinct_nets:
+    if net.is_attached(n):
+        break
+else:
+    distinct_nets.append(net)","
+flag_else = 1
+for n in distinct_nets:
+    if net.is_attached(n):
+        flag_else = 0
+        break
+if flag_else:
+    distinct_nets.append(net)",1,"[['https://github.com/devbisme/skidl/tree/master/tests/test_make_parts.py', 'tests.test_make_parts', '', 'test_subcircuit_2'], ['https://github.com/devbisme/skidl/tree/master/tests/test_make_parts.py', 'tests.test_make_parts', '', 'test_subcircuit_1'], ['https://github.com/devbisme/skidl/tree/master/tests/test_multi_circuits.py', 'tests.test_multi_circuits', '', 'test_subcircuit_1'], ['https://github.com/devbisme/skidl/tree/master/tests/test_multi_circuits.py', 'tests.test_multi_circuits', '', 'test_subcircuit_2']]"
+asv,https://github.com/airspeed-velocity/asv/tree/master/asv/environment.py,,test_matrix_expand_basic,"for rule in conf.exclude:
+    rule = _parse_exclude_include_rule(rule)
+    if match_rule(target, rule):
+        break
+else:
+    empty_matrix = False
+    yield dict((item for item in zip(all_keys, combination) if item[1] is not None))","
+flag_else = 1
+for rule in conf.exclude:
+    rule = _parse_exclude_include_rule(rule)
+    if match_rule(target, rule):
+        flag_else = 0
+        break
+if flag_else:
+    empty_matrix = False
+    yield dict((item for item in zip(all_keys, combination) if item[1] is not None))",1,"[['https://github.com/airspeed-velocity/asv/tree/master/test/test_environment.py', 'test.test_environment', '', 'test_matrix_expand_exclude'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_environment.py', 'test.test_environment', '', 'test_matrix_expand_include'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_environment.py', 'test.test_environment', '', 'test_iter_env_matrix_combinations'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_environment.py', 'test.test_environment', '', 'test_matrix_expand_include_detect_env_type'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_environment.py', 'test.test_environment', '', 'test_matrix_expand_basic']]"
+asv,https://github.com/airspeed-velocity/asv/tree/master/asv/util.py,,test_find_inverted,"for j in range(10):
+    time.sleep(0.1)
+    if proc.poll() is not None:
+        break
+else:
+    _killpg_safe(proc.pid, signal.SIGKILL)","
+flag_else = 1
+for j in range(10):
+    time.sleep(0.1)
+    if proc.poll() is not None:
+        flag_else = 0
+        break
+if flag_else:
+    _killpg_safe(proc.pid, signal.SIGKILL)",1,"[['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_stderr_redirect'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_popen'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_env'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_output_timeout'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_find.py', 'test.test_find', '', 'test_find_timeout'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_large_output'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_find.py', 'test.test_find', '', 'test_find'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_no_timeout'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_util.py', 'test.test_util', '', 'test_check_output_exit_code'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_timeout'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_subprocess.py', 'test.test_subprocess', '', 'test_exception'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_find.py', 'test.test_find', '', 'test_find_inverted']]"
+asv,https://github.com/airspeed-velocity/asv/tree/master/asv/graph.py,,test_summary_graph_loop,"for i in xrange(len(val)):
+    if any((not is_na(v) for v in val[i][1])):
+        break
+else:
+    i = len(val)","
+flag_else = 1
+for i in xrange(len(val)):
+    if any((not is_na(v) for v in val[i][1])):
+        flag_else = 0
+        break
+if flag_else:
+    i = len(val)",1,"[['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_graph_multi'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_summary_graph'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_empty_graph'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_nan'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_graph_single'], ['https://github.com/airspeed-velocity/asv/tree/master/test/test_graph.py', 'test.test_graph', '', 'test_summary_graph_loop']]"
+nibabel,https://github.com/nipy/nibabel/tree/master//versioneer.py,,test_parrec2nii,"for c in commands:
+    try:
+        dispcmd = str([c] + args)
+        p = subprocess.Popen([c] + args, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE if hide_stderr else None)
+        break
+    except EnvironmentError:
+        e = sys.exc_info()[1]
+        if e.errno == errno.ENOENT:
+            continue
+        if verbose:
+            print('unable to run %s' % dispcmd)
+            print(e)
+        return (None, None)
+else:
+    if verbose:
+        print('unable to find command, tried %s' % (commands,))
+    return (None, None)","
+flag_else = 1
+for c in commands:
+    try:
+        dispcmd = str([c] + args)
+        p = subprocess.Popen([c] + args, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE if hide_stderr else None)
+        flag_else = 0
+        break
+    except EnvironmentError:
+        e = sys.exc_info()[1]
+        if e.errno == errno.ENOENT:
+            continue
+        if verbose:
+            print('unable to run %s' % dispcmd)
+            print(e)
+        return (None, None)
+if flag_else:
+    if verbose:
+        print('unable to find command, tried %s' % (commands,))
+    return (None, None)",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_nifti_dx'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_trk2tck'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_tck2trk'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_parrec2nii']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/orientations.py,,test_ornt_transform,"for (start_in_idx, (start_out_idx, start_flip)) in enumerate(start_ornt):
+    if end_out_idx == start_out_idx:
+        if start_flip == end_flip:
+            flip = 1
+        else:
+            flip = -1
+        result[start_in_idx, :] = [end_in_idx, flip]
+        break
+else:
+    raise ValueError('Unable to find out axis %d in start_ornt' % end_out_idx)","
+flag_else = 1
+for (start_in_idx, (start_out_idx, start_flip)) in enumerate(start_ornt):
+    if end_out_idx == start_out_idx:
+        if start_flip == end_flip:
+            flip = 1
+        else:
+            flip = -1
+        result[start_in_idx, :] = [end_in_idx, flip]
+        flag_else = 0
+        break
+if flag_else:
+    raise ValueError('Unable to find out axis %d in start_ornt' % end_out_idx)",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_orientations.py', 'nibabel.tests.test_orientations', '', 'test_ornt_transform']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/_version.py,,test_parrec2nii,"for c in commands:
+    try:
+        dispcmd = str([c] + args)
+        p = subprocess.Popen([c] + args, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE if hide_stderr else None)
+        break
+    except EnvironmentError:
+        e = sys.exc_info()[1]
+        if e.errno == errno.ENOENT:
+            continue
+        if verbose:
+            print('unable to run %s' % dispcmd)
+            print(e)
+        return (None, None)
+else:
+    if verbose:
+        print('unable to find command, tried %s' % (commands,))
+    return (None, None)","
+flag_else = 1
+for c in commands:
+    try:
+        dispcmd = str([c] + args)
+        p = subprocess.Popen([c] + args, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE if hide_stderr else None)
+        flag_else = 0
+        break
+    except EnvironmentError:
+        e = sys.exc_info()[1]
+        if e.errno == errno.ENOENT:
+            continue
+        if verbose:
+            print('unable to run %s' % dispcmd)
+            print(e)
+        return (None, None)
+if flag_else:
+    if verbose:
+        print('unable to find command, tried %s' % (commands,))
+    return (None, None)",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_nifti_dx'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_trk2tck'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_nib_tck2trk'], ['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_scripts.py', 'nibabel.tests.test_scripts', '', 'test_parrec2nii']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/filename_parser.py,,test_parse_filename,"for (name, ext) in types_exts:
+    if ext and endswith(filename, ext):
+        extpos = -len(ext)
+        found_ext = filename[extpos:]
+        filename = filename[:extpos]
+        guessed_name = name
+        break
+else:
+    (filename, found_ext) = os.path.splitext(filename)","
+flag_else = 1
+for (name, ext) in types_exts:
+    if ext and endswith(filename, ext):
+        extpos = -len(ext)
+        found_ext = filename[extpos:]
+        filename = filename[:extpos]
+        guessed_name = name
+        flag_else = 0
+        break
+if flag_else:
+    (filename, found_ext) = os.path.splitext(filename)",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_filename_parser.py', 'nibabel.tests.test_filename_parser', '', 'test_parse_filename']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/filename_parser.py,,test_splitext_addext,"for ext in addexts:
+    if endswith(filename, ext):
+        extpos = -len(ext)
+        (filename, addext) = (filename[:extpos], filename[extpos:])
+        break
+else:
+    addext = ''","
+flag_else = 1
+for ext in addexts:
+    if endswith(filename, ext):
+        extpos = -len(ext)
+        (filename, addext) = (filename[:extpos], filename[extpos:])
+        flag_else = 0
+        break
+if flag_else:
+    addext = ''",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/tests/test_filename_parser.py', 'nibabel.tests.test_filename_parser', '', 'test_splitext_addext']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/cifti2/cifti2_axes.py,,test_brain_models,"for poss_orient in orient_names:
+    idx = len(poss_orient)
+    if poss_orient == name.lower()[:idx]:
+        orientation = poss_orient
+        if name[idx] in '_ ':
+            structure = name[idx + 1:]
+        else:
+            structure = name[idx:]
+        break
+    if poss_orient == name.lower()[-idx:]:
+        orientation = poss_orient
+        if name[-idx - 1] in '_ ':
+            structure = name[:-idx - 1]
+        else:
+            structure = name[:-idx]
+        break
+else:
+    orientation = 'both'
+    structure = name","
+flag_else = 1
+for poss_orient in orient_names:
+    idx = len(poss_orient)
+    if poss_orient == name.lower()[:idx]:
+        orientation = poss_orient
+        if name[idx] in '_ ':
+            structure = name[idx + 1:]
+        else:
+            structure = name[idx:]
+        flag_else = 0
+        break
+    if poss_orient == name.lower()[-idx:]:
+        orientation = poss_orient
+        if name[-idx - 1] in '_ ':
+            structure = name[:-idx - 1]
+        else:
+            structure = name[:-idx]
+        flag_else = 0
+        break
+if flag_else:
+    orientation = 'both'
+    structure = name",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/cifti2/tests/test_axes.py', 'nibabel.cifti2.tests.test_axes', '', 'test_brain_models']]"
+nibabel,https://github.com/nipy/nibabel/tree/master/nibabel/cifti2/cifti2.py,,test_read_nifti2,"for item in nifti_img.header.extensions:
+    if isinstance(item, Cifti2Extension):
+        cifti_header = item.get_content()
+        break
+else:
+    raise ValueError('NIfTI2 header does not contain a CIFTI-2 extension')","
+flag_else = 1
+for item in nifti_img.header.extensions:
+    if isinstance(item, Cifti2Extension):
+        cifti_header = item.get_content()
+        flag_else = 0
+        break
+if flag_else:
+    raise ValueError('NIfTI2 header does not contain a CIFTI-2 extension')",1,"[['https://github.com/nipy/nibabel/tree/master/nibabel/cifti2/tests/test_cifti2io_header.py', 'nibabel.cifti2.tests.test_cifti2io_header', '', 'test_read_nifti2']]"
+forseti-security,https://github.com/forseti-security/forseti-security/tree/master/google/cloud/forseti/scanner/scanners/iam_rules_scanner.py,IamRulesScannerTest,test_add_bucket_ancestor_bindings_nothing_found,"for bucket_binding in bucket_bindings:
+    if bucket_binding.role_name == ancestor_binding.role_name:
+        bucket_binding.merge_members(ancestor_binding)
+        break
+else:
+    bucket_bindings.append(ancestor_binding)","
+flag_else = 1
+for bucket_binding in bucket_bindings:
+    if bucket_binding.role_name == ancestor_binding.role_name:
+        bucket_binding.merge_members(ancestor_binding)
+        flag_else = 0
+        break
+if flag_else:
+    bucket_bindings.append(ancestor_binding)",1,"[['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_with_2_ancestor_lines'], ['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_same_role_different_members'], ['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_success'], ['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_success_no_dups'], ['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_with_wrong_ancestors'], ['https://github.com/forseti-security/forseti-security/tree/master/tests/scanner/scanners/iam_rules_scanner_test.py', 'tests.scanner.scanners.iam_rules_scanner_test', 'IamRulesScannerTest', 'test_add_bucket_ancestor_bindings_nothing_found']]"
+errbot,https://github.com/errbotio/errbot/tree/master/errbot/utils.py,,test_find_plugin_roots,"for subelement in relative.split(os.path.sep):
+    if subelement in ('.', '..'):
+        continue
+    if subelement.startswith('.') or subelement == '__pycache__':
+        log.debug('Ignore %s.', dir_to_add)
+        break
+else:
+    roots.append(dir_to_add)","
+flag_else = 1
+for subelement in relative.split(os.path.sep):
+    if subelement in ('.', '..'):
+        continue
+    if subelement.startswith('.') or subelement == '__pycache__':
+        log.debug('Ignore %s.', dir_to_add)
+        flag_else = 0
+        break
+if flag_else:
+    roots.append(dir_to_add)",1,"[['https://github.com/errbotio/errbot/tree/master/tests/plugin_management_test.py', 'tests.plugin_management_test', '', 'test_find_plugin_roots']]"
+pyte,https://github.com/selectel/pyte/tree/master/pyte/screens.py,,test_tabstops,"for stop in sorted(self.tabstops):
+    if self.cursor.x < stop:
+        column = stop
+        break
+else:
+    column = self.columns - 1","
+flag_else = 1
+for stop in sorted(self.tabstops):
+    if self.cursor.x < stop:
+        column = stop
+        flag_else = 0
+        break
+if flag_else:
+    column = self.columns - 1",1,"[['https://github.com/selectel/pyte/tree/master/tests/test_screen.py', 'tests.test_screen', '', 'test_tabstops']]"
+eventsourcing,https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/utils.py,TestTopics,test_register_topic_move_module_into_package,"for i in range(len(attr_name_parts) - 1, 0, -1):
+    part_name = '.'.join(attr_name_parts[:i])
+    try:
+        obj = _topic_cache[f'{module_name}:{part_name}']
+    except KeyError:
+        continue
+    else:
+        attr_name = '.'.join(attr_name_parts[i:])
+        break
+else:
+    try:
+        obj = _topic_cache[module_name]
+    except KeyError:
+        module_name_parts = module_name.split('.')
+        for i in range(len(module_name_parts) - 1, 0, -1):
+            part_name = '.'.join(module_name_parts[:i])
+            try:
+                obj = _topic_cache[f'{part_name}']
+            except KeyError:
+                continue
+            else:
+                module_name = '.'.join([obj.__name__] + module_name_parts[i:])
+                break
+        try:
+            obj = importlib.import_module(module_name)
+        except ImportError as e:
+            raise TopicError from e","
+flag_else = 1
+for i in range(len(attr_name_parts) - 1, 0, -1):
+    part_name = '.'.join(attr_name_parts[:i])
+    try:
+        obj = _topic_cache[f'{module_name}:{part_name}']
+    except KeyError:
+        continue
+    else:
+        attr_name = '.'.join(attr_name_parts[i:])
+        flag_else = 0
+        break
+if flag_else:
+    try:
+        obj = _topic_cache[module_name]
+    except KeyError:
+        module_name_parts = module_name.split('.')
+        for i in range(len(module_name_parts) - 1, 0, -1):
+            part_name = '.'.join(module_name_parts[:i])
+            try:
+                obj = _topic_cache[f'{part_name}']
+            except KeyError:
+                continue
+            else:
+                module_name = '.'.join([obj.__name__] + module_name_parts[i:])
+                break
+        try:
+            obj = importlib.import_module(module_name)
+        except ImportError as e:
+            raise TopicError from e",1,"[['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_register_topic_move_package'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_resolve_topic'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_register_topic_rename_package_and_module'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_topic_errors'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_register_topic_rename_class'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_register_topic_rename_package'], ['https://github.com/pyeventsourcing/eventsourcing/tree/master/eventsourcing/tests/test_utils.py', 'eventsourcing.tests.test_utils', 'TestTopics', 'test_register_topic_move_module_into_package']]"
+yt-dlc,https://github.com/blackjack4494/yt-dlc/tree/master/youtube_dlc/utils.py,TestUtil,test_is_html,"for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        break
+else:
+    s = first_bytes.decode('utf-8', 'replace')","
+flag_else = 1
+for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        flag_else = 0
+        break
+if flag_else:
+    s = first_bytes.decode('utf-8', 'replace')",1,"[['https://github.com/blackjack4494/yt-dlc/tree/master/test/test_utils.py', 'test.test_utils', 'TestUtil', 'test_is_html']]"
+yt-dlc,https://github.com/blackjack4494/yt-dlc/tree/master/youtube_dlc/extractor/youtube.py,TestPlayerInfo,test_youtube_extract_player_info,"for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        break
+else:
+    raise ExtractorError('Cannot identify player %r' % player_url)","
+flag_else = 1
+for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        flag_else = 0
+        break
+if flag_else:
+    raise ExtractorError('Cannot identify player %r' % player_url)",1,"[['https://github.com/blackjack4494/yt-dlc/tree/master/test/test_youtube_signature.py', 'test.test_youtube_signature', 'TestPlayerInfo', 'test_youtube_extract_player_info']]"
+oio-sds,https://github.com/open-io/oio-sds/tree/master/oio/common/green.py,RatelimiterTest,test_next_rate,"for partition in policy:
+    curr_partition = partition
+    if (curr_date - partition[0]).date() < curr_date.date():
+        break
+else:
+    curr_partition = policy[0]
+    next_day = True","
+flag_else = 1
+for partition in policy:
+    curr_partition = partition
+    if (curr_date - partition[0]).date() < curr_date.date():
+        flag_else = 0
+        break
+if flag_else:
+    curr_partition = policy[0]
+    next_day = True",1,"[['https://github.com/open-io/oio-sds/tree/master/tests/unit/common/test_ratelimiter.py', 'tests.unit.common.test_ratelimiter', 'RatelimiterTest', 'test_next_rate']]"
+mistune,https://github.com/lepture/mistune/tree/master/mistune/directives/toc.py,TestPluginTocAst,test_render_toc_ul,"while levels:
+    last_level = levels.pop()
+    if level == last_level:
+        s += '</li>\n</ul>\n</li>\n<li>' + item
+        levels.append(level)
+        break
+    elif level > last_level:
+        s += '</li>\n<li>' + item
+        levels.append(last_level)
+        levels.append(level)
+        break
+    else:
+        s += '</li>\n</ul>\n'
+else:
+    levels.append(level)
+    s += '</li>\n<li>' + item","
+flag_else = 1
+while levels:
+    last_level = levels.pop()
+    if level == last_level:
+        s += '</li>\n</ul>\n</li>\n<li>' + item
+        levels.append(level)
+        flag_else = 0
+        break
+    elif level > last_level:
+        s += '</li>\n<li>' + item
+        levels.append(last_level)
+        levels.append(level)
+        flag_else = 0
+        break
+    else:
+        s += '</li>\n</ul>\n'
+if flag_else:
+    levels.append(level)
+    s += '</li>\n<li>' + item",1,"[['https://github.com/lepture/mistune/tree/master/tests/test_toc.py', 'tests.test_toc', 'TestPluginTocAst', 'test_render_toc_ul']]"
+more-itertools,https://github.com/more-itertools/more-itertools/tree/master/more_itertools/more.py,DistinctPermutationsTests,test_other_iterables,"for i in range(size - 2, -1, -1):
+    if A[i] < A[i + 1]:
+        break
+else:
+    return","
+flag_else = 1
+for i in range(size - 2, -1, -1):
+    if A[i] < A[i + 1]:
+        flag_else = 0
+        break
+if flag_else:
+    return",1,"[['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_distinct_permutations'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_r'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_other_iterables']]"
+more-itertools,https://github.com/more-itertools/more-itertools/tree/master/more_itertools/more.py,DistinctPermutationsTests,test_other_iterables,"for i in right_head_indexes:
+    if head[i] < pivot:
+        break
+    pivot = head[i]
+else:
+    return","
+flag_else = 1
+for i in right_head_indexes:
+    if head[i] < pivot:
+        flag_else = 0
+        break
+    pivot = head[i]
+if flag_else:
+    return",1,"[['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_distinct_permutations'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_r'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_other_iterables']]"
+more-itertools,https://github.com/more-itertools/more-itertools/tree/master/more_itertools/more.py,DistinctPermutationsTests,test_other_iterables,"for j in left_tail_indexes:
+    if tail[j] > head[i]:
+        (head[i], tail[j]) = (tail[j], head[i])
+        break
+else:
+    for j in right_head_indexes:
+        if head[j] > head[i]:
+            (head[i], head[j]) = (head[j], head[i])
+            break","
+flag_else = 1
+for j in left_tail_indexes:
+    if tail[j] > head[i]:
+        (head[i], tail[j]) = (tail[j], head[i])
+        flag_else = 0
+        break
+if flag_else:
+    for j in right_head_indexes:
+        if head[j] > head[i]:
+            (head[i], head[j]) = (head[j], head[i])
+            break",1,"[['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_distinct_permutations'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_r'], ['https://github.com/more-itertools/more-itertools/tree/master/tests/test_more.py', 'tests.test_more', 'DistinctPermutationsTests', 'test_other_iterables']]"
+mido,https://github.com/mido/mido/tree/master/mido/parser.py,,test_encode_and_parse_all,"for msg in self:
+    return msg
+else:
+    return None","
+
+for msg in self:
+    return msg
+return None
+",1,"[['https://github.com/mido/mido/tree/master/tests/test_parser.py', 'tests.test_parser', '', 'test_encode_and_parse_all']]"
+mido,https://github.com/mido/mido/tree/master/mido/backends/rtmidi_utils.py,,test_expand_alsa_port_name,"for port_name in port_names:
+    if name == port_name:
+        return name
+    without_numbers = port_name.rsplit(None, 1)[0]
+    if name == without_numbers:
+        return port_name
+    if ':' in without_numbers:
+        without_client = without_numbers.split(':', 1)[1]
+        if name == without_client:
+            return port_name
+else:
+    return name","
+
+for port_name in port_names:
+    if name == port_name:
+        return name
+    without_numbers = port_name.rsplit(None, 1)[0]
+    if name == without_numbers:
+        return port_name
+    if ':' in without_numbers:
+        without_client = without_numbers.split(':', 1)[1]
+        if name == without_client:
+            return port_name
+return name
+",1,"[['https://github.com/mido/mido/tree/master/tests/backends/test_rtmidi.py', 'tests.backends.test_rtmidi', '', 'test_expand_alsa_port_name']]"
+fonttools,https://github.com/fonttools/fonttools/tree/master/Lib/fontTools/varLib/mutator.py,BuildTest,test_kerning_merging,"for (percent, widthClass) in sorted(OS2_WIDTH_CLASS_VALUES.items()):
+    if wdth < percent:
+        varfont['OS/2'].usWidthClass = widthClass
+        break
+else:
+    varfont['OS/2'].usWidthClass = 9","
+flag_else = 1
+for (percent, widthClass) in sorted(OS2_WIDTH_CLASS_VALUES.items()):
+    if wdth < percent:
+        varfont['OS/2'].usWidthClass = widthClass
+        flag_else = 0
+        break
+if flag_else:
+    varfont['OS/2'].usWidthClass = 9",1,"[['https://github.com/fonttools/fonttools/tree/master/Tests/varLib/mutator_test.py', 'Tests.varLib.mutator_test', 'MutatorTest', 'test_varlib_mutator_CFF2'], ['https://github.com/fonttools/fonttools/tree/master/Tests/varLib/varLib_test.py', 'Tests.varLib.varLib_test', 'BuildTest', 'test_kerning_merging']]"
+youtube-dl,https://github.com/lrvick/youtube-dl/tree/master/youtube_dl/utils.py,TestUtil,test_is_html,"for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        break
+else:
+    s = first_bytes.decode('utf-8', 'replace')","
+flag_else = 1
+for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        flag_else = 0
+        break
+if flag_else:
+    s = first_bytes.decode('utf-8', 'replace')",1,"[['https://github.com/lrvick/youtube-dl/tree/master/test/test_utils.py', 'test.test_utils', 'TestUtil', 'test_is_html']]"
+youtube-dl,https://github.com/lrvick/youtube-dl/tree/master/youtube_dl/extractor/youtube.py,TestPlayerInfo,test_youtube_extract_player_info,"for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        break
+else:
+    raise ExtractorError('Cannot identify player %r' % player_url)","
+flag_else = 1
+for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        flag_else = 0
+        break
+if flag_else:
+    raise ExtractorError('Cannot identify player %r' % player_url)",1,"[['https://github.com/lrvick/youtube-dl/tree/master/test/test_youtube_signature.py', 'test.test_youtube_signature', 'TestPlayerInfo', 'test_youtube_extract_player_info']]"
+picard,https://github.com/metabrainz/picard/tree/master/picard/formats/vorbis.py,VorbisUtilTest,test_flac_sort_pics_after_tags,"for block in metadata_blocks:
+    if block.code == mutagen.flac.VCFLACDict.code:
+        tagindex = metadata_blocks.index(block)
+        break
+    elif block.code == mutagen.flac.Picture.code:
+        picblocks.append(block)
+else:
+    return","
+flag_else = 1
+for block in metadata_blocks:
+    if block.code == mutagen.flac.VCFLACDict.code:
+        tagindex = metadata_blocks.index(block)
+        flag_else = 0
+        break
+    elif block.code == mutagen.flac.Picture.code:
+        picblocks.append(block)
+if flag_else:
+    return",1,"[['https://github.com/metabrainz/picard/tree/master/test/formats/test_vorbis.py', 'test.formats.test_vorbis', 'VorbisUtilTest', 'test_flac_sort_pics_after_tags']]"
+picard,https://github.com/metabrainz/picard/tree/master/picard/formats/asf.py,AsfUtilTest,test_unpack_image,"while data:
+    (char, data) = (data[:2], data[2:])
+    if char == b'\x00\x00':
+        break
+    mime += char
+else:
+    raise ValueError('mime: missing data')","
+flag_else = 1
+while data:
+    (char, data) = (data[:2], data[2:])
+    if char == b'\x00\x00':
+        flag_else = 0
+        break
+    mime += char
+if flag_else:
+    raise ValueError('mime: missing data')",1,"[['https://github.com/metabrainz/picard/tree/master/test/formats/test_asf.py', 'test.formats.test_asf', 'AsfUtilTest', 'test_pack_and_unpack_image'], ['https://github.com/metabrainz/picard/tree/master/test/formats/test_asf.py', 'test.formats.test_asf', 'AsfUtilTest', 'test_unpack_image']]"
+picard,https://github.com/metabrainz/picard/tree/master/picard/formats/asf.py,AsfUtilTest,test_unpack_image,"while data:
+    (char, data) = (data[:2], data[2:])
+    if char == b'\x00\x00':
+        break
+    description += char
+else:
+    raise ValueError('desc: missing data')","
+flag_else = 1
+while data:
+    (char, data) = (data[:2], data[2:])
+    if char == b'\x00\x00':
+        flag_else = 0
+        break
+    description += char
+if flag_else:
+    raise ValueError('desc: missing data')",1,"[['https://github.com/metabrainz/picard/tree/master/test/formats/test_asf.py', 'test.formats.test_asf', 'AsfUtilTest', 'test_pack_and_unpack_image'], ['https://github.com/metabrainz/picard/tree/master/test/formats/test_asf.py', 'test.formats.test_asf', 'AsfUtilTest', 'test_unpack_image']]"
+spiderfoot,https://github.com/smicallef/spiderfoot/tree/master//sflib.py,TestSpiderFoot,test_fetchUrl_argument_url_invalid_url_should_return_None,"for encoding in ('utf-8', 'ascii'):
+    try:
+        result['content'] = res.content.decode(encoding)
+    except UnicodeDecodeError:
+        pass
+    else:
+        break
+else:
+    result['content'] = res.content","
+flag_else = 1
+for encoding in ('utf-8', 'ascii'):
+    try:
+        result['content'] = res.content.decode(encoding)
+    except UnicodeDecodeError:
+        pass
+    else:
+        flag_else = 0
+        break
+if flag_else:
+    result['content'] = res.content",1,"[['https://github.com/smicallef/spiderfoot/tree/master/test/unit/test_spiderfoot.py', 'test.unit.test_spiderfoot', 'TestSpiderFoot', 'test_fetchUrl_argument_url_invalid_type_should_return_none'], ['https://github.com/smicallef/spiderfoot/tree/master/test/unit/test_spiderfoot.py', 'test.unit.test_spiderfoot', 'TestSpiderFoot', 'test_fetchUrl_argument_url_should_return_http_response_as_dict'], ['https://github.com/smicallef/spiderfoot/tree/master/test/unit/test_spiderfoot.py', 'test.unit.test_spiderfoot', 'TestSpiderFoot', 'test_fetchUrl_argument_headOnly_should_return_http_response_as_dict'], ['https://github.com/smicallef/spiderfoot/tree/master/test/unit/test_spiderfoot.py', 'test.unit.test_spiderfoot', 'TestSpiderFoot', 'test_fetchUrl_argument_url_invalid_url_should_return_None']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/cycles.py,TestFindCycle,test_multidigraph,"for start_node in G.nbunch_iter(source):
+    if start_node in explored:
+        continue
+    edges = []
+    seen = {start_node}
+    active_nodes = {start_node}
+    previous_head = None
+    for edge in nx.edge_dfs(G, start_node, orientation):
+        (tail, head) = tailhead(edge)
+        if head in explored:
+            continue
+        if previous_head is not None and tail != previous_head:
+            while True:
+                try:
+                    popped_edge = edges.pop()
+                except IndexError:
+                    edges = []
+                    active_nodes = {tail}
+                    break
+                else:
+                    popped_head = tailhead(popped_edge)[1]
+                    active_nodes.remove(popped_head)
+                if edges:
+                    last_head = tailhead(edges[-1])[1]
+                    if tail == last_head:
+                        break
+        edges.append(edge)
+        if head in active_nodes:
+            cycle.extend(edges)
+            final_node = head
+            break
+        else:
+            seen.add(head)
+            active_nodes.add(head)
+            previous_head = head
+    if cycle:
+        break
+    else:
+        explored.update(seen)
+else:
+    assert len(cycle) == 0
+    raise nx.exception.NetworkXNoCycle('No cycle found.')","
+flag_else = 1
+for start_node in G.nbunch_iter(source):
+    if start_node in explored:
+        continue
+    edges = []
+    seen = {start_node}
+    active_nodes = {start_node}
+    previous_head = None
+    for edge in nx.edge_dfs(G, start_node, orientation):
+        (tail, head) = tailhead(edge)
+        if head in explored:
+            continue
+        if previous_head is not None and tail != previous_head:
+            while True:
+                try:
+                    popped_edge = edges.pop()
+                except IndexError:
+                    edges = []
+                    active_nodes = {tail}
+                    break
+                else:
+                    popped_head = tailhead(popped_edge)[1]
+                    active_nodes.remove(popped_head)
+                if edges:
+                    last_head = tailhead(edges[-1])[1]
+                    if tail == last_head:
+                        break
+        edges.append(edge)
+        if head in active_nodes:
+            cycle.extend(edges)
+            final_node = head
+            break
+        else:
+            seen.add(head)
+            active_nodes.add(head)
+            previous_head = head
+    if cycle:
+        flag_else = 0
+        break
+    else:
+        explored.update(seen)
+if flag_else:
+    assert len(cycle) == 0
+    raise nx.exception.NetworkXNoCycle('No cycle found.')",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_digraph_reverse'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_graph_orientation_original'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_digraph_orientation_original'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_multidigraph_ignore'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_digraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_digraph_ignore'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_dag'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_digraph_orientation_none'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_graph_cycle'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_graph_orientation_none'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_multidigraph_ignore2'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tests/test_cycles.py', 'networkx.algorithms.tests.test_cycles', 'TestFindCycle', 'test_multidigraph']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/isomorphism/matchhelpers.py,TestGenericMultiEdgeMatch,test_generic_multiedge_match,"for vals2 in permutations(values2):
+    for (xi, yi) in zip(values1, vals2):
+        if not all(map(lambda x, y, z: z(x, y), xi, yi, op)):
+            break
+    else:
+        return True
+else:
+    return False","
+
+for vals2 in permutations(values2):
+    for (xi, yi) in zip(values1, vals2):
+        if not all(map(lambda x, y, z: z(x, y), xi, yi, op)):
+            break
+    else:
+        return True
+return False
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/isomorphism/tests/test_match_helpers.py', 'networkx.algorithms.isomorphism.tests.test_match_helpers', 'TestGenericMultiEdgeMatch', 'test_generic_multiedge_match']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/isomorphism/matchhelpers.py,TestGenericMultiEdgeMatch,test_generic_multiedge_match,"for (xi, yi) in zip(values1, vals2):
+    if not all(map(lambda x, y, z: z(x, y), xi, yi, op)):
+        break
+else:
+    return True","
+flag_else = 1
+for (xi, yi) in zip(values1, vals2):
+    if not all(map(lambda x, y, z: z(x, y), xi, yi, op)):
+        flag_else = 0
+        break
+if flag_else:
+    return True",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/isomorphism/tests/test_match_helpers.py', 'networkx.algorithms.isomorphism.tests.test_match_helpers', 'TestGenericMultiEdgeMatch', 'test_generic_multiedge_match']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/branchings.py,,test_edge_attribute_discard,"for v in G.pred[u]:
+    for edgekey in G.pred[u][v]:
+        if edgekey in edgekeys:
+            return (False, edgekey)
+else:
+    return (True, None)","
+
+for v in G.pred[u]:
+    for edgekey in G.pred[u][v]:
+        if edgekey in edgekeys:
+            return (False, edgekey)
+return (True, None)
+",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_preservation_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_preservation_normal_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_discard']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/branchings.py,,test_edge_attribute_discard,"for edgekey in circuit:
+    (u, v, data) = G.edge_index[edgekey]
+    if v == target:
+        break
+else:
+    raise Exception(""Couldn't find edge incoming to merged node."")","
+flag_else = 1
+for edgekey in circuit:
+    (u, v, data) = G.edge_index[edgekey]
+    if v == target:
+        flag_else = 0
+        break
+if flag_else:
+    raise Exception(""Couldn't find edge incoming to merged node."")",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_preservation_multigraph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_preservation_normal_graph'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/tree/tests/test_branchings.py', 'networkx.algorithms.tree.tests.test_branchings', '', 'test_edge_attribute_discard']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/link_analysis/hits_alg.py,TestHITS,test_hits_not_convergent,"for _ in range(max_iter):
+    hlast = h
+    h = dict.fromkeys(hlast.keys(), 0)
+    a = dict.fromkeys(hlast.keys(), 0)
+    for n in h:
+        for nbr in G[n]:
+            a[nbr] += hlast[n] * G[n][nbr].get('weight', 1)
+    for n in h:
+        for nbr in G[n]:
+            h[n] += a[nbr] * G[n][nbr].get('weight', 1)
+    s = 1.0 / max(h.values())
+    for n in h:
+        h[n] *= s
+    s = 1.0 / max(a.values())
+    for n in a:
+        a[n] *= s
+    err = sum((abs(h[n] - hlast[n]) for n in h))
+    if err < tol:
+        break
+else:
+    raise nx.PowerIterationFailedConvergence(max_iter)","
+flag_else = 1
+for _ in range(max_iter):
+    hlast = h
+    h = dict.fromkeys(hlast.keys(), 0)
+    a = dict.fromkeys(hlast.keys(), 0)
+    for n in h:
+        for nbr in G[n]:
+            a[nbr] += hlast[n] * G[n][nbr].get('weight', 1)
+    for n in h:
+        for nbr in G[n]:
+            h[n] += a[nbr] * G[n][nbr].get('weight', 1)
+    s = 1.0 / max(h.values())
+    for n in h:
+        h[n] *= s
+    s = 1.0 / max(a.values())
+    for n in a:
+        a[n] *= s
+    err = sum((abs(h[n] - hlast[n]) for n in h))
+    if err < tol:
+        flag_else = 0
+        break
+if flag_else:
+    raise nx.PowerIterationFailedConvergence(max_iter)",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/link_analysis/tests/test_hits.py', 'networkx.algorithms.link_analysis.tests.test_hits', 'TestHITS', 'test_empty'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/link_analysis/tests/test_hits.py', 'networkx.algorithms.link_analysis.tests.test_hits', 'TestHITS', 'test_hits_not_convergent']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/equitable_coloring.py,TestColoring,test_hardest_prob,"for v in C[W_1]:
+    X = None
+    for U in C.keys():
+        if N[v, U] == 0 and U in A_cal and (U != W_1):
+            X = U
+    if X is None:
+        continue
+    for U in C.keys():
+        if N[v, U] >= 1 and U not in A_cal:
+            X_prime = U
+            w = v
+            y_candidates = [node for node in L[w] if F[node] == X_prime and N[node, W_1] == 1]
+            if len(y_candidates) > 0:
+                y = y_candidates[0]
+                W = W_1
+                change_color(w, W, X, N=N, H=H, F=F, C=C, L=L)
+                move_witnesses(src_color=X, dst_color=V_minus, N=N, H=H, F=F, C=C, T_cal=T_cal, L=L)
+                change_color(y, X_prime, W, N=N, H=H, F=F, C=C, L=L)
+                procedure_P(V_minus=X_prime, V_plus=V_plus, N=N, H=H, C=C, F=F, L=L, excluded_colors=excluded_colors.union(A_cal))
+                made_equitable = True
+                break
+    if made_equitable:
+        break
+else:
+    A_cal_0.add(W_1)
+    A_0.update(C[W_1])
+    num_terminal_sets_found += 1","
+flag_else = 1
+for v in C[W_1]:
+    X = None
+    for U in C.keys():
+        if N[v, U] == 0 and U in A_cal and (U != W_1):
+            X = U
+    if X is None:
+        continue
+    for U in C.keys():
+        if N[v, U] >= 1 and U not in A_cal:
+            X_prime = U
+            w = v
+            y_candidates = [node for node in L[w] if F[node] == X_prime and N[node, W_1] == 1]
+            if len(y_candidates) > 0:
+                y = y_candidates[0]
+                W = W_1
+                change_color(w, W, X, N=N, H=H, F=F, C=C, L=L)
+                move_witnesses(src_color=X, dst_color=V_minus, N=N, H=H, F=F, C=C, T_cal=T_cal, L=L)
+                change_color(y, X_prime, W, N=N, H=H, F=F, C=C, L=L)
+                procedure_P(V_minus=X_prime, V_plus=V_plus, N=N, H=H, C=C, F=F, L=L, excluded_colors=excluded_colors.union(A_cal))
+                made_equitable = True
+                break
+    if made_equitable:
+        flag_else = 0
+        break
+if flag_else:
+    A_cal_0.add(W_1)
+    A_0.update(C[W_1])
+    num_terminal_sets_found += 1",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_case_V_plus_not_in_A_cal'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_hard_prob'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_cast_no_solo'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_hardest_prob']]"
+networkx,https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/equitable_coloring.py,TestColoring,test_hardest_prob,"for z in C[V_plus] + B_prime:
+    if z in I_covered or F[z] not in B_cal_prime:
+        continue
+    I_set.add(z)
+    I_covered.add(z)
+    I_covered.update([nbr for nbr in L[z]])
+    for w in L[z]:
+        if F[w] in A_cal_0 and N[z, F[w]] == 1:
+            if w not in W_covering:
+                W_covering[w] = z
+            else:
+                z_1 = W_covering[w]
+                Z = F[z_1]
+                W = F[w]
+                move_witnesses(W, V_minus, N=N, H=H, F=F, C=C, T_cal=T_cal, L=L)
+                move_witnesses(V_plus, Z, N=N, H=H, F=F, C=C, T_cal=T_cal_prime, L=L)
+                change_color(z_1, Z, W, N=N, H=H, F=F, C=C, L=L)
+                W_plus = [k for k in C.keys() if N[w, k] == 0 and k not in A_cal][0]
+                change_color(w, W, W_plus, N=N, H=H, F=F, C=C, L=L)
+                excluded_colors.update([k for k in C.keys() if k != W and k not in B_cal_prime])
+                procedure_P(V_minus=W, V_plus=W_plus, N=N, H=H, C=C, F=F, L=L, excluded_colors=excluded_colors)
+                made_equitable = True
+                break
+    if made_equitable:
+        break
+else:
+    assert False, 'Must find a w which is the solo neighbor of two vertices in B_cal_prime.'","
+flag_else = 1
+for z in C[V_plus] + B_prime:
+    if z in I_covered or F[z] not in B_cal_prime:
+        continue
+    I_set.add(z)
+    I_covered.add(z)
+    I_covered.update([nbr for nbr in L[z]])
+    for w in L[z]:
+        if F[w] in A_cal_0 and N[z, F[w]] == 1:
+            if w not in W_covering:
+                W_covering[w] = z
+            else:
+                z_1 = W_covering[w]
+                Z = F[z_1]
+                W = F[w]
+                move_witnesses(W, V_minus, N=N, H=H, F=F, C=C, T_cal=T_cal, L=L)
+                move_witnesses(V_plus, Z, N=N, H=H, F=F, C=C, T_cal=T_cal_prime, L=L)
+                change_color(z_1, Z, W, N=N, H=H, F=F, C=C, L=L)
+                W_plus = [k for k in C.keys() if N[w, k] == 0 and k not in A_cal][0]
+                change_color(w, W, W_plus, N=N, H=H, F=F, C=C, L=L)
+                excluded_colors.update([k for k in C.keys() if k != W and k not in B_cal_prime])
+                procedure_P(V_minus=W, V_plus=W_plus, N=N, H=H, C=C, F=F, L=L, excluded_colors=excluded_colors)
+                made_equitable = True
+                break
+    if made_equitable:
+        flag_else = 0
+        break
+if flag_else:
+    assert False, 'Must find a w which is the solo neighbor of two vertices in B_cal_prime.'",1,"[['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_case_V_plus_not_in_A_cal'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_hard_prob'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_cast_no_solo'], ['https://github.com/networkx/networkx/tree/master/networkx/algorithms/coloring/tests/test_coloring.py', 'networkx.algorithms.coloring.tests.test_coloring', 'TestColoring', 'test_hardest_prob']]"
+powerline,https://github.com/powerline/powerline/tree/master/tests/modules/vim.py,TestVim,test_visual_range,"for w in current.tabpage.windows:
+    if w.buffer.number == win.buffer.number:
+        break
+else:
+    _bw(win.buffer.number)","
+flag_else = 1
+for w in current.tabpage.windows:
+    if w.buffer.number == win.buffer.number:
+        flag_else = 0
+        break
+if flag_else:
+    _bw(win.buffer.number)",1,"[['https://github.com/powerline/powerline/tree/master/tests/test_python/test_segments.py', 'tests.test_python.test_segments', 'TestVim', 'test_visual_range']]"
+pycco,https://github.com/pycco-docs/pycco/tree/master/pycco/main.py,,test_get_language_specify_language,"for entry in supported_languages.values():
+    if entry['name'] == language_name:
+        return entry
+else:
+    raise ValueError('Unknown forced language: {}'.format(language_name))","
+
+for entry in supported_languages.values():
+    if entry['name'] == language_name:
+        return entry
+raise ValueError('Unknown forced language: {}'.format(language_name))
+",1,"[['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_parse'], ['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_get_language_bad_code'], ['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_get_language_specify_language']]"
+pycco,https://github.com/pycco-docs/pycco/tree/master/pycco/main.py,,test_get_language_specify_language,"for entry in supported_languages.values():
+    if entry['name'] == language_name:
+        return entry
+else:
+    raise ValueError()","
+
+for entry in supported_languages.values():
+    if entry['name'] == language_name:
+        return entry
+raise ValueError()
+",1,"[['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_parse'], ['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_get_language_bad_code'], ['https://github.com/pycco-docs/pycco/tree/master/tests/test_pycco.py', 'tests.test_pycco', '', 'test_get_language_specify_language']]"
+openstack-ansible,https://github.com/openstack/openstack-ansible/tree/master/osa_toolkit/generate.py,TestOverridingEnvIntegration,test_empty_contains,"for (key, value) in container_skel.items():
+    contains_in = value.get('contains', False)
+    belongs_to_in = value.get('belongs_to', False)
+    if contains_in or belongs_to_in:
+        for assignment in value['contains']:
+            for container_type in value['belongs_to']:
+                _add_container_hosts(assignment, config, key, container_type, inventory, value.get('properties', {}))
+else:
+    cidr_networks = config.get('cidr_networks')
+    provider_queues = {}
+    for net_name in cidr_networks:
+        ip_q = ip.load_optional_q(cidr_networks, cidr_name=net_name)
+        provider_queues[net_name] = ip_q
+        if ip_q is not None:
+            net = netaddr.IPNetwork(cidr_networks.get(net_name))
+            q_netmask = '{}_netmask'.format(net_name)
+            provider_queues[q_netmask] = str(net.netmask)
+    overrides = config.get('global_overrides', dict())
+    pns = overrides.get('provider_networks', list())
+    for pn in pns:
+        p_net = pn.get('network')
+        if not p_net:
+            continue
+        q_name = p_net.get('ip_from_q')
+        ip_from_q = provider_queues.get(q_name)
+        if ip_from_q:
+            netmask = provider_queues['{}_netmask'.format(q_name)]
+        else:
+            netmask = None
+        for group in p_net.get('group_binds', list()):
+            _add_additional_networks(key=group, inventory=inventory, ip_q=ip_from_q, q_name=q_name, netmask=netmask, interface=p_net.get('container_interface'), bridge=p_net.get('container_bridge'), net_type=p_net.get('container_type'), net_mtu=p_net.get('container_mtu'), user_config=config, is_container_address=p_net.get('is_container_address'), static_routes=p_net.get('static_routes'), gateway=p_net.get('gateway'), reference_group=p_net.get('reference_group'), address_prefix=p_net.get('address_prefix'))","
+
+for (key, value) in container_skel.items():
+    contains_in = value.get('contains', False)
+    belongs_to_in = value.get('belongs_to', False)
+    if contains_in or belongs_to_in:
+        for assignment in value['contains']:
+            for container_type in value['belongs_to']:
+                _add_container_hosts(assignment, config, key, container_type, inventory, value.get('properties', {}))
+cidr_networks = config.get('cidr_networks')
+provider_queues = {}
+for net_name in cidr_networks:
+    ip_q = ip.load_optional_q(cidr_networks, cidr_name=net_name)
+    provider_queues[net_name] = ip_q
+    if ip_q is not None:
+        net = netaddr.IPNetwork(cidr_networks.get(net_name))
+        q_netmask = '{}_netmask'.format(net_name)
+        provider_queues[q_netmask] = str(net.netmask)
+overrides = config.get('global_overrides', dict())
+pns = overrides.get('provider_networks', list())
+for pn in pns:
+    p_net = pn.get('network')
+    if not p_net:
+        continue
+    q_name = p_net.get('ip_from_q')
+    ip_from_q = provider_queues.get(q_name)
+    if ip_from_q:
+        netmask = provider_queues['{}_netmask'.format(q_name)]
+    else:
+        netmask = None
+    for group in p_net.get('group_binds', list()):
+        _add_additional_networks(key=group, inventory=inventory, ip_q=ip_from_q, q_name=q_name, netmask=netmask, interface=p_net.get('container_interface'), bridge=p_net.get('container_bridge'), net_type=p_net.get('container_type'), net_mtu=p_net.get('container_mtu'), user_config=config, is_container_address=p_net.get('is_container_address'), static_routes=p_net.get('static_routes'), gateway=p_net.get('gateway'), reference_group=p_net.get('reference_group'), address_prefix=p_net.get('address_prefix'))
+",1,"[['https://github.com/openstack/openstack-ansible/tree/master/tests/test_inventory.py', 'tests.test_inventory', 'TestOverridingEnvIntegration', 'test_emptying_container_integration'], ['https://github.com/openstack/openstack-ansible/tree/master/tests/test_inventory.py', 'tests.test_inventory', 'TestOverridingEnvIntegration', 'test_empty_belongs_to'], ['https://github.com/openstack/openstack-ansible/tree/master/tests/test_inventory.py', 'tests.test_inventory', 'TestOverridingEnvIntegration', 'test_empty_contains']]"
+capirca,https://github.com/google/capirca/tree/master/tools/cgrep.py,CgrepTest,test_ip_not_contained,"for sec_obj in second:
+    if obj.version == sec_obj.version:
+        if obj.subnet_of(sec_obj):
+            break
+else:
+    return False","
+flag_else = 1
+for sec_obj in second:
+    if obj.version == sec_obj.version:
+        if obj.subnet_of(sec_obj):
+            flag_else = 0
+            break
+if flag_else:
+    return False",1,"[['https://github.com/google/capirca/tree/master/tests/lib/cgrep_test.py', 'tests.lib.cgrep_test', 'CgrepTest', 'test_ipv6_contained'], ['https://github.com/google/capirca/tree/master/tests/lib/cgrep_test.py', 'tests.lib.cgrep_test', 'CgrepTest', 'test_ip_contained'], ['https://github.com/google/capirca/tree/master/tests/lib/cgrep_test.py', 'tests.lib.cgrep_test', 'CgrepTest', 'test_ipv6_not_contained'], ['https://github.com/google/capirca/tree/master/tests/lib/cgrep_test.py', 'tests.lib.cgrep_test', 'CgrepTest', 'test_ip_not_contained']]"
+rdflib,https://github.com/RDFLib/rdflib/tree/master/rdflib/plugins/shared/jsonld/context.py,,test_select_term_based_on_value_characteristics,"for container_key in (LIST, LANG, SET):
+    if container_key in container:
+        break
+else:
+    container_key = UNDEF","
+flag_else = 1
+for container_key in (LIST, LANG, SET):
+    if container_key in container:
+        flag_else = 0
+        break
+if flag_else:
+    container_key = UNDEF",1,"[['https://github.com/RDFLib/rdflib/tree/master/test/jsonld/test_context.py', 'test.jsonld.test_context', '', 'test_create_context'], ['https://github.com/RDFLib/rdflib/tree/master/test/jsonld/test_context.py', 'test.jsonld.test_context', '', 'test_select_term_based_on_value_characteristics']]"
+beancount,https://github.com/beancount/beancount/tree/master/beancount/utils/misc_utils.py,TestMiscUtils,test_compute_unique_clean_ids,"for (regexp, replacement) in [('[^A-Za-z0-9.-]', '_'), ('[^A-Za-z0-9_]', '')]:
+    seen = set()
+    idmap = {}
+    mre = re.compile(regexp)
+    for string in string_set:
+        id_ = mre.sub(replacement, string)
+        if id_ in seen:
+            break
+        seen.add(id_)
+        idmap[id_] = string
+    else:
+        break
+else:
+    return None","
+flag_else = 1
+for (regexp, replacement) in [('[^A-Za-z0-9.-]', '_'), ('[^A-Za-z0-9_]', '')]:
+    seen = set()
+    idmap = {}
+    mre = re.compile(regexp)
+    for string in string_set:
+        id_ = mre.sub(replacement, string)
+        if id_ in seen:
+            break
+        seen.add(id_)
+        idmap[id_] = string
+    else:
+        flag_else = 0
+        break
+if flag_else:
+    return None",1,"[['https://github.com/beancount/beancount/tree/master/beancount/utils/misc_utils_test.py', 'beancount.utils.misc_utils_test', 'TestMiscUtils', 'test_compute_unique_clean_ids']]"
+beancount,https://github.com/beancount/beancount/tree/master/beancount/utils/misc_utils.py,TestMiscUtils,test_compute_unique_clean_ids,"for string in string_set:
+    id_ = mre.sub(replacement, string)
+    if id_ in seen:
+        break
+    seen.add(id_)
+    idmap[id_] = string
+else:
+    break","
+flag_else = 1
+for string in string_set:
+    id_ = mre.sub(replacement, string)
+    if id_ in seen:
+        flag_else = 0
+        break
+    seen.add(id_)
+    idmap[id_] = string
+if flag_else:
+    break",1,"[['https://github.com/beancount/beancount/tree/master/beancount/utils/misc_utils_test.py', 'beancount.utils.misc_utils_test', 'TestMiscUtils', 'test_compute_unique_clean_ids']]"
+xonsh,https://github.com/xonsh/xonsh/tree/master/xonsh/tools.py,,test_subproc_toks_hello_mom_first,"for tok in lexer:
+    pos = tok.lexpos
+    if tok.type not in END_TOK_TYPES and pos >= maxcol:
+        break
+    if tok.type == 'BANG':
+        saw_macro = True
+    if saw_macro and tok.type not in ('NEWLINE', 'DEDENT'):
+        toks.append(tok)
+        continue
+    if tok.type in LPARENS:
+        lparens.append(tok.type)
+    if greedy and len(lparens) > 0 and ('LPAREN' in lparens):
+        toks.append(tok)
+        if tok.type == 'RPAREN':
+            lparens.pop()
+        continue
+    if len(toks) == 0 and tok.type in BEG_TOK_SKIPS:
+        continue
+    elif len(toks) > 0 and toks[-1].type in END_TOK_TYPES:
+        if _is_not_lparen_and_rparen(lparens, toks[-1]):
+            lparens.pop()
+        elif pos < maxcol and tok.type not in ('NEWLINE', 'DEDENT', 'WS'):
+            if not greedy:
+                toks.clear()
+            if tok.type in BEG_TOK_SKIPS:
+                continue
+        else:
+            break
+    if pos < mincol:
+        continue
+    toks.append(tok)
+    if tok.type == 'WS' and tok.value == '\\':
+        pass
+    elif tok.type == 'NEWLINE':
+        break
+    elif tok.type == 'DEDENT':
+        tok.type = 'NEWLINE'
+        tok.value = '\n'
+        tok.lineno -= 1
+        if len(toks) >= 2:
+            prev_tok_end = toks[-2].lexpos + len(toks[-2].value)
+        else:
+            prev_tok_end = len(line)
+        if '#' in line[prev_tok_end:]:
+            tok.lexpos = prev_tok_end
+        else:
+            tok.lexpos = len(line)
+        break
+    elif check_bad_str_token(tok):
+        return
+else:
+    if len(toks) > 0 and toks[-1].type in END_TOK_TYPES:
+        if _is_not_lparen_and_rparen(lparens, toks[-1]):
+            pass
+        elif greedy and toks[-1].type == 'RPAREN':
+            pass
+        else:
+            toks.pop()
+    if len(toks) == 0:
+        return
+    tok = toks[-1]
+    pos = tok.lexpos
+    if isinstance(tok.value, str):
+        end_offset = len(tok.value.rstrip())
+    else:
+        el = line[pos:].split('#')[0].rstrip()
+        end_offset = len(el)","
+flag_else = 1
+for tok in lexer:
+    pos = tok.lexpos
+    if tok.type not in END_TOK_TYPES and pos >= maxcol:
+        flag_else = 0
+        break
+    if tok.type == 'BANG':
+        saw_macro = True
+    if saw_macro and tok.type not in ('NEWLINE', 'DEDENT'):
+        toks.append(tok)
+        continue
+    if tok.type in LPARENS:
+        lparens.append(tok.type)
+    if greedy and len(lparens) > 0 and ('LPAREN' in lparens):
+        toks.append(tok)
+        if tok.type == 'RPAREN':
+            lparens.pop()
+        continue
+    if len(toks) == 0 and tok.type in BEG_TOK_SKIPS:
+        continue
+    elif len(toks) > 0 and toks[-1].type in END_TOK_TYPES:
+        if _is_not_lparen_and_rparen(lparens, toks[-1]):
+            lparens.pop()
+        elif pos < maxcol and tok.type not in ('NEWLINE', 'DEDENT', 'WS'):
+            if not greedy:
+                toks.clear()
+            if tok.type in BEG_TOK_SKIPS:
+                continue
+        else:
+            flag_else = 0
+            break
+    if pos < mincol:
+        continue
+    toks.append(tok)
+    if tok.type == 'WS' and tok.value == '\\':
+        pass
+    elif tok.type == 'NEWLINE':
+        flag_else = 0
+        break
+    elif tok.type == 'DEDENT':
+        tok.type = 'NEWLINE'
+        tok.value = '\n'
+        tok.lineno -= 1
+        if len(toks) >= 2:
+            prev_tok_end = toks[-2].lexpos + len(toks[-2].value)
+        else:
+            prev_tok_end = len(line)
+        if '#' in line[prev_tok_end:]:
+            tok.lexpos = prev_tok_end
+        else:
+            tok.lexpos = len(line)
+        flag_else = 0
+        break
+    elif check_bad_str_token(tok):
+        return
+if flag_else:
+    if len(toks) > 0 and toks[-1].type in END_TOK_TYPES:
+        if _is_not_lparen_and_rparen(lparens, toks[-1]):
+            pass
+        elif greedy and toks[-1].type == 'RPAREN':
+            pass
+        else:
+            toks.pop()
+    if len(toks) == 0:
+        return
+    tok = toks[-1]
+    pos = tok.lexpos
+    if isinstance(tok.value, str):
+        end_offset = len(tok.value.rstrip())
+    else:
+        el = line[pos:].split('#')[0].rstrip()
+        end_offset = len(el)",1,"[['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_python_macro'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_42_comment'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_greedy_parens_inp'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_l'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_mom_triple_quotes_nl'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_twopyeval'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_str_comment'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_git_semi'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_paren_ws'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval_redirect'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_l_semi_ls_first'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_bad_trailing_single_quotes'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval_nested_parens'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_capstdout'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval_parens'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_not_paren'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_greedy_parens_statements_with_grep'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_mom_second'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_l_semi_ls_second'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_bad_leading_triple_quotes'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_and_paren'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_nl'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_paren_and_paren'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_str'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_paren'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_capproc'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_ls_comment'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_semicolon_only'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_no_min_semi_nl'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval_multiline_string'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_greedy_parens_statements'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_twopyeval_parens'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_bad_trailing_triple_quotes'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_no_min'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_git_nl'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_no_min_nl'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_bash_macro'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_comment'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_git'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_bad_leading_single_quotes'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_comment'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_x'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval_nested'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_indent_ls_no_min_semi'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_pyeval'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_not'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_greedy_parens'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_tools.py', 'tests.test_tools', '', 'test_subproc_toks_hello_mom_first']]"
+xonsh,https://github.com/xonsh/xonsh/tree/master/xonsh/xoreutils/_which.py,TestWhich,test_whichgen,"for ext in exts:
+    if ext.lower() == '.exe':
+        break
+else:
+    exts = ['.COM', '.EXE', '.BAT', '.CMD']","
+flag_else = 1
+for ext in exts:
+    if ext.lower() == '.exe':
+        flag_else = 0
+        break
+if flag_else:
+    exts = ['.COM', '.EXE', '.BAT', '.CMD']",1,"[['https://github.com/xonsh/xonsh/tree/master/tests/test_xoreutils.py', 'tests.test_xoreutils', 'TestWhich', 'test_whichgen_verbose'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_xoreutils.py', 'tests.test_xoreutils', 'TestWhich', 'test_whichgen_failure'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_xoreutils.py', 'tests.test_xoreutils', 'TestWhich', 'test_whichgen_multiple'], ['https://github.com/xonsh/xonsh/tree/master/tests/test_xoreutils.py', 'tests.test_xoreutils', 'TestWhich', 'test_whichgen']]"
+not-youtube-dl,https://github.com/scastillo/not-youtube-dl/tree/master/youtube_dl/utils.py,TestUtil,test_is_html,"for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        break
+else:
+    s = first_bytes.decode('utf-8', 'replace')","
+flag_else = 1
+for (bom, enc) in BOMS:
+    if first_bytes.startswith(bom):
+        s = first_bytes[len(bom):].decode(enc, 'replace')
+        flag_else = 0
+        break
+if flag_else:
+    s = first_bytes.decode('utf-8', 'replace')",1,"[['https://github.com/scastillo/not-youtube-dl/tree/master/test/test_utils.py', 'test.test_utils', 'TestUtil', 'test_is_html']]"
+not-youtube-dl,https://github.com/scastillo/not-youtube-dl/tree/master/youtube_dl/extractor/youtube.py,TestPlayerInfo,test_youtube_extract_player_info,"for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        break
+else:
+    raise ExtractorError('Cannot identify player %r' % player_url)","
+flag_else = 1
+for player_re in cls._PLAYER_INFO_RE:
+    id_m = re.search(player_re, player_url)
+    if id_m:
+        flag_else = 0
+        break
+if flag_else:
+    raise ExtractorError('Cannot identify player %r' % player_url)",1,"[['https://github.com/scastillo/not-youtube-dl/tree/master/test/test_youtube_signature.py', 'test.test_youtube_signature', 'TestPlayerInfo', 'test_youtube_extract_player_info']]"
